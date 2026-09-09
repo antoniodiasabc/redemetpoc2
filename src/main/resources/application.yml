@@ -7,6 +7,10 @@ server:
     mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
     min-response-size: 1024
 
+rate-limit:
+  requests: ${RATE_LIMIT_REQUESTS:100}
+  minutes: ${RATE_LIMIT_MINUTES:1}
+
 spring:
   application:
     name: pocsigmet-spring-final

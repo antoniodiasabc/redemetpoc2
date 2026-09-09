@@ -179,6 +179,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.bucket4j</groupId>
+            <artifactId>bucket4j-core</artifactId>
+            <version>8.10.1</version>
+        </dependency>
         <!-- JTS Topology Suite - geometria robusta para SIGMETs -->
         <dependency>
             <groupId>org.locationtech.jts</groupId>

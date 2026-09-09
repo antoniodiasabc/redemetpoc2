@@ -59,6 +59,8 @@ services:
       - CESIUM_TOKEN=${CESIUM_TOKEN}
       - SIGWX_PATH=/sigwx
       - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+      - RATE_LIMIT_REQUESTS=${RATE_LIMIT_REQUESTS}
+      - RATE_LIMIT_MINUTES=${RATE_LIMIT_MINUTES}
       - CLEANUP_RETENTION_DAYS=${CLEANUP_RETENTION_DAYS}
     volumes:
       - shared-data:/app/data
