@@ -1,0 +1,100 @@
+package com.pocsigmet;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sun.net.httpserver.HttpExchange;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+import java.util.stream.Collectors;
+
+/**
+ * Handler HTTP para /redemet_sigmets_vizinhos.
+ * Registrado no router de PocSigmetApplication com uma única linha de case.
+ */
+public class NeighborSigmetHandler {
+
+    private static final Logger log = LoggerFactory.getLogger(NeighborSigmetHandler.class);
+
+    // Cache simples: 5 minutos
+    private static volatile String cachedJson = null;
+    private static volatile long cacheTime = 0;
+    private static final long CACHE_DURATION = 5 * 60 * 1000;
+
+    public static void handle(HttpExchange exchange) throws IOException {
+        exchange.getResponseHeaders().set("Access-Control-Allow-Origin", "*");
+        exchange.getResponseHeaders().set("Content-Type", "application/json; charset=UTF-8");
+
+        // Servir cache se válido, mas filtrando SIGMETs expirados
+        if (cachedJson != null && System.currentTimeMillis() - cacheTime < CACHE_DURATION) {
+            log.info("🚀 SIGMETs vizinhos cache HIT");
+            send(exchange, 200, filterExpired(cachedJson));
+            return;
+        }
+
+        CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+            try {
+                return new NeighborSigmetClient().getNeighborSigmetsJson();
+            } catch (Exception e) {
+                log.warn("❌ Erro ao buscar SIGMETs vizinhos: {}", e.getMessage());
+                return "[]";
+            }
+        });
+
+        try {
+            String json = future.get(25, TimeUnit.SECONDS);
+            cachedJson = json;
+            cacheTime = System.currentTimeMillis();
+            send(exchange, 200, json);
+        } catch (TimeoutException e) {
+            log.warn("❌ Timeout SIGMETs vizinhos");
+            String fallback = cachedJson != null ? cachedJson : "[]";
+            send(exchange, 200, fallback);
+        } catch (Exception e) {
+            log.warn("❌ Erro handler vizinhos: {}", e.getMessage());
+            send(exchange, 500, "{\"error\":\"" + e.getMessage() + "\"}");
+        }
+    }
+
+    private static void send(HttpExchange exchange, int code, String body) throws IOException {
+        byte[] bytes = body.getBytes("UTF-8");
+        exchange.sendResponseHeaders(code, bytes.length);
+        try (OutputStream os = exchange.getResponseBody()) { os.write(bytes); }
+    }
+
+    /** Remove do cache SIGMETs cujo endTime já passou. */
+    @SuppressWarnings("unchecked")
+    private static String filterExpired(String json) {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            List<Map<String,Object>> list = mapper.readValue(json, List.class);
+            LocalDateTime now = LocalDateTime.now(ZoneOffset.UTC);
+            List<Map<String,Object>> active = list.stream().filter(f -> {
+                try {
+                    Map<String,Object> props = (Map<String,Object>) f.get("properties");
+                    String vp = (String) props.get("validPeriod"); // "DDHHMI/DDHHMI"
+                    if (vp == null) return true;
+                    String end = vp.split("/")[1];
+                    int day  = Integer.parseInt(end.substring(0,2));
+                    int hour = Integer.parseInt(end.substring(2,4));
+                    int min  = Integer.parseInt(end.substring(4,6));
+                    int y = now.getYear(), m = now.getMonthValue();
+                    if (day < now.getDayOfMonth()) m = m == 12 ? (y++ == y ? 1 : 1) : m + 1;
+                    LocalDateTime endDt = LocalDateTime.of(y, m, day, hour, min);
+                    return now.isBefore(endDt);
+                } catch (Exception e) { return true; }
+            }).collect(Collectors.toList());
+            return mapper.writeValueAsString(active);
+        } catch (Exception e) {
+            return json;
+        }
+    }
+}

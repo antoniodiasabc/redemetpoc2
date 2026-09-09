@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teste Polígonos Editáveis</title>
+    <script src="https://cdn.jsdelivr.net/npm/puppeteer@21.0.0/lib/cjs/puppeteer/puppeteer-core.js"></script>
+</head>
+<body>
+    <h1>Teste Automatizado - Polígonos Editáveis</h1>
+    <div id="results"></div>
+    <iframe id="app" src="http://localhost:8082" width="800" height="600"></iframe>
+    
+    <script>
+        async function testEditablePolygons() {
+            const results = document.getElementById('results');
+            const iframe = document.getElementById('app');
+            
+            try {
+                results.innerHTML += '<p>🔍 Aguardando carregamento...</p>';
+                
+                // Aguardar iframe carregar
+                await new Promise(resolve => {
+                    iframe.onload = resolve;
+                    setTimeout(resolve, 5000); // timeout
+                });
+                
+                const appWindow = iframe.contentWindow;
+                const appDoc = iframe.contentDocument;
+                
+                results.innerHTML += '<p>✅ Aplicação carregada</p>';
+                
+                // 1. Clicar em HSV Otimizado
+                const hsvButton = appDoc.querySelector('button[onclick="analyzeHSVOptimized()"]');
+                if (!hsvButton) {
+                    throw new Error('Botão HSV Otimizado não encontrado');
+                }
+                
+                hsvButton.click();
+                results.innerHTML += '<p>🔄 HSV Otimizado executado</p>';
+                
+                // Aguardar processamento
+                await new Promise(resolve => setTimeout(resolve, 5000));
+                
+                // Verificar se polígonos foram salvos
+                const polygonsCount = appWindow.hsvOptimizedPolygons ? appWindow.hsvOptimizedPolygons.length : 0;
+                results.innerHTML += `<p>📊 Polígonos salvos: ${polygonsCount}</p>`;
+                
+                if (polygonsCount === 0) {
+                    throw new Error('Nenhum polígono foi salvo');
+                }
+                
+                // 2. Clicar em Criar Polígonos Editáveis
+                const editButton = appDoc.querySelector('button[onclick="createEditablePolygons()"]');
+                if (!editButton) {
+                    throw new Error('Botão Criar Polígonos Editáveis não encontrado');
+                }
+                
+                editButton.click();
+                results.innerHTML += '<p>🔄 Polígonos editáveis criados</p>';
+                
+                // Aguardar criação
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // 3. Verificar se layer editável existe
+                const hasEditableLayer = appWindow.editablePolygonsLayer !== null && appWindow.editablePolygonsLayer !== undefined;
+                results.innerHTML += `<p>📐 Layer editável existe: ${hasEditableLayer}</p>`;
+                
+                // 4. Verificar se interações de edição estão ativas
+                const hasEditInteractions = appWindow.editInteractions && appWindow.editInteractions.length > 0;
+                results.innerHTML += `<p>🎯 Interações de edição ativas: ${hasEditInteractions}</p>`;
+                
+                // 5. Verificar se Select interaction existe
+                const map = appWindow.map;
+                let hasSelectInteraction = false;
+                if (map) {
+                    map.getInteractions().forEach(interaction => {
+                        if (interaction.constructor.name === 'Select') {
+                            hasSelectInteraction = true;
+                        }
+                    });
+                }
+                results.innerHTML += `<p>🖱️ Select interaction ativa: ${hasSelectInteraction}</p>`;
+                
+                // 6. Verificar se Modify interaction existe
+                let hasModifyInteraction = false;
+                if (map) {
+                    map.getInteractions().forEach(interaction => {
+                        if (interaction.constructor.name === 'Modify') {
+                            hasModifyInteraction = true;
+                        }
+                    });
+                }
+                results.innerHTML += `<p>✏️ Modify interaction ativa: ${hasModifyInteraction}</p>`;
+                
+                // Resultado final
+                if (hasEditableLayer && hasEditInteractions && hasSelectInteraction && hasModifyInteraction) {
+                    results.innerHTML += '<p><strong style="color: green;">🎯 TESTE PASSOU! Polígonos são editáveis</strong></p>';
+                } else {
+                    results.innerHTML += '<p><strong style="color: red;">❌ TESTE FALHOU! Polígonos NÃO são editáveis</strong></p>';
+                    results.innerHTML += `<p>Debug: Layer=${hasEditableLayer}, Interactions=${hasEditInteractions}, Select=${hasSelectInteraction}, Modify=${hasModifyInteraction}</p>`;
+                }
+                
+            } catch (error) {
+                results.innerHTML += `<p style="color: red;">❌ Erro no teste: ${error.message}</p>`;
+            }
+        }
+        
+        // Executar teste após 2 segundos
+        setTimeout(testEditablePolygons, 2000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teste Simples - Animação</title>
+</head>
+<body>
+    <h1>Teste da Animação de Vento</h1>
+    
+    <button onclick="testFunction()">🧪 Testar Função</button>
+    <button onclick="toggleWindAnimation()">🌪️ Animação de Vento</button>
+    
+    <div id="wind-animation-container" style="display: none; border: 1px solid red; padding: 10px; margin: 10px;">
+        Container da animação
+    </div>
+    
+    <div id="result"></div>
+
+    <script src="js/animation.js"></script>
+    <script>
+        function testFunction() {
+            document.getElementById('result').innerHTML = 'Função JavaScript funcionando!';
+            console.log('Teste executado');
+        }
+        
+        // Verificar se as classes estão carregadas
+        window.addEventListener('load', function() {
+            const result = document.getElementById('result');
+            if (typeof WindAnimation !== 'undefined') {
+                result.innerHTML += '<br>✅ Classe WindAnimation carregada';
+            } else {
+                result.innerHTML += '<br>❌ Classe WindAnimation NÃO carregada';
+            }
+            
+            if (typeof windAnimation !== 'undefined') {
+                result.innerHTML += '<br>✅ Instância windAnimation existe';
+            } else {
+                result.innerHTML += '<br>❌ Instância windAnimation NÃO existe';
+            }
+            
+            if (typeof toggleWindAnimation === 'function') {
+                result.innerHTML += '<br>✅ Função toggleWindAnimation existe';
+            } else {
+                result.innerHTML += '<br>❌ Função toggleWindAnimation NÃO existe';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+🚀 Iniciando POC SIGMET Spring Boot...
+📥 Executando download inicial...
+🔄 [09:28:40.462319845] Iniciando download de imagens...
+❌ Canal 16 falhou: 202511100928
+❌ Canal 16 falhou: 202511100918
+❌ Canal 16 falhou: 202511100908
+❌ Canal 16 falhou: 202511100858
+❌ Canal 16 falhou: 202511100848
+✅ Download de imagens concluído!
+🔍 Agendando análise HSV inicial...
+⏰ Agendamento configurado: Download a cada 20min, HSV a cada 1min
+✅ Aplicação rodando em http://localhost:8082
+🔍 Health check: http://localhost:8082/health
+🔍 [09:28:44.643728823] Executando análise HSV...
+🔀 Roteando: /data/hsv_updated.txt
+🔀 Roteando: /data/hsv_updated.txt -> data/hsv_updated.txt
+📄 Servindo arquivo: hsv_updated.txt (11 bytes)

@@ -1,0 +1,12 @@
+[
+  {
+    "path": "/metar/filtro",
+    "handlerClass": "/app/data/config/handlers/MetarFiltroHandler.java",
+    "method": "handle"
+  },
+  {
+    "path": "/metar/nuvens",
+    "handlerClass": "/app/data/config/handlers/NuvensContagemHandler.java",
+    "method": "handle"
+  }
+]

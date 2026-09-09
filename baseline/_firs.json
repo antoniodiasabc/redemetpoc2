@@ -1,0 +1,45 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "SBBS - Brasília" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-60, -5], [-45, -5], [-45, -20], [-60, -20], [-60, -5]
+        ]]
+      }
+    },
+    {
+      "type": "Feature", 
+      "properties": { "name": "SBCW - Curitiba" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-60, -20], [-45, -20], [-45, -35], [-60, -35], [-60, -20]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "SBRE - Recife" },
+      "geometry": {
+        "type": "Polygon", 
+        "coordinates": [[
+          [-45, 5], [-30, 5], [-30, -20], [-45, -20], [-45, 5]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "SBAO - Amazônica" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-75, 5], [-60, 5], [-60, -5], [-45, -5], [-45, 5], [-30, 5], [-30, -5], [-75, -5], [-75, 5]
+        ]]
+      }
+    }
+  ]
+}

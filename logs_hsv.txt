@@ -1,0 +1,32 @@
+🚀 Iniciando POC SIGMET Spring Boot...
+📥 Executando download inicial...
+🔄 [09:32:40.124225424] Iniciando download de imagens...
+🔍 Tentando: 202511101200
+✅ Canal 16: 202511101200
+✅ Download de imagens concluído!
+🔍 Nova imagem detectada - reprocessando HSV...
+🔍 Agendando análise HSV inicial...
+🔍 [09:32:42.280123295] Executando análise HSV...
+⏰ Agendamento configurado: Download a cada 20min, HSV a cada 1min
+✅ Aplicação rodando em http://localhost:8082
+🔍 Health check: http://localhost:8082/health
+🔍 [09:32:44.280803235] Executando análise HSV...
+🔀 Roteando: /data/hsv_updated.txt
+🔀 Roteando: /data/hsv_updated.txt -> data/hsv_updated.txt
+📄 Servindo arquivo: hsv_updated.txt (11 bytes)
+🔍 [09:33:42.287499779] Executando análise HSV...
+🔀 Roteando: /data/hsv_updated.txt
+🔀 Roteando: /data/hsv_updated.txt -> data/hsv_updated.txt
+📄 Servindo arquivo: hsv_updated.txt (11 bytes)
+🔀 Roteando: /data/hsv_updated.txt
+🔀 Roteando: /data/hsv_updated.txt -> data/hsv_updated.txt
+📄 Servindo arquivo: hsv_updated.txt (11 bytes)
+🔀 Roteando: /data/hsv_updated.txt
+🔀 Roteando: /data/hsv_updated.txt -> data/hsv_updated.txt
+📄 Servindo arquivo: hsv_updated.txt (11 bytes)
+🔀 Roteando: /data/hsv_updated.txt
+🔀 Roteando: /data/hsv_updated.txt -> data/hsv_updated.txt
+📄 Servindo arquivo: hsv_updated.txt (11 bytes)
+🔀 Roteando: /data/hsv_updated.txt
+🔀 Roteando: /data/hsv_updated.txt -> data/hsv_updated.txt
+📄 Servindo arquivo: hsv_updated.txt (11 bytes)

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🧪 Teste Animação de Vento</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .success { color: green; }
+        .error { color: red; }
+        .info { color: blue; }
+        button { padding: 8px 15px; margin: 5px; cursor: pointer; }
+        #results { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Teste da Animação de Vento</h1>
+    
+    <div class="test-section">
+        <h3>1. Teste da API</h3>
+        <button onclick="testAPI()">🔗 Testar Endpoint</button>
+        <div id="api-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>2. Teste de Performance</h3>
+        <button onclick="testPerformance()">⚡ Testar Velocidade</button>
+        <div id="performance-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>3. Teste Visual</h3>
+        <button onclick="testVisual()">👁️ Testar Interface</button>
+        <div id="visual-result"></div>
+        <div id="wind-animation-container" style="display: none;"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>4. Teste de Integração</h3>
+        <button onclick="testIntegration()">🔧 Testar Sistema</button>
+        <div id="integration-result"></div>
+    </div>
+    
+    <div id="results">
+        <h3>📊 Resultados dos Testes</h3>
+        <div id="test-summary"></div>
+    </div>
+
+    <script src="js/animation.js"></script>
+    <script>
+        let testResults = [];
+
+        // Teste 1: API
+        async function testAPI() {
+            const resultDiv = document.getElementById('api-result');
+            resultDiv.innerHTML = '🔄 Testando API...';
+            
+            try {
+                console.time('api-test');
+                const response = await fetch('/api/v1/animation/satellite-wind?hours=3');
+                const data = await response.json();
+                console.timeEnd('api-test');
+                
+                if (data.error) {
+                    throw new Error(data.message);
+                }
+                
+                const result = `
+                    <div class="success">✅ API funcionando!</div>
+                    <div class="info">📊 Frames: ${data.frame_count}</div>
+                    <div class="info">📡 Imagens: ${data.satellite_frames.length}</div>
+                    <div class="info">💨 Dados de vento: ${data.wind_overlays.length}</div>
+                    <div class="info">⏱️ Gerado em: ${data.generated_at}</div>
+                `;
+                
+                resultDiv.innerHTML = result;
+                testResults.push({test: 'API', status: 'success', details: data});
+                
+            } catch (error) {
+                const result = `<div class="error">❌ Erro na API: ${error.message}</div>`;
+                resultDiv.innerHTML = result;
+                testResults.push({test: 'API', status: 'error', details: error.message});
+            }
+            
+            updateSummary();
+        }
+
+        // Teste 2: Performance
+        async function testPerformance() {
+            const resultDiv = document.getElementById('performance-result');
+            resultDiv.innerHTML = '🔄 Testando performance...';
+            
+            try {
+                const startTime = performance.now();
+                const response = await fetch('/api/v1/animation/satellite-wind?hours=6');
+                const data = await response.json();
+                const endTime = performance.now();
+                
+                const responseTime = Math.round(endTime - startTime);
+                const dataSize = JSON.stringify(data).length;
+                
+                let status = 'success';
+                let message = '✅ Performance OK';
+                
+                if (responseTime > 5000) {
+                    status = 'error';
+                    message = '❌ Muito lento';
+                } else if (responseTime > 2000) {
+                    status = 'warning';
+                    message = '⚠️ Performance aceitável';
+                }
+                
+                const result = `
+                    <div class="${status === 'error' ? 'error' : 'success'}">${message}</div>
+                    <div class="info">⏱️ Tempo: ${responseTime}ms</div>
+                    <div class="info">📦 Tamanho: ${Math.round(dataSize/1024)}KB</div>
+                    <div class="info">🚀 Taxa: ${Math.round(dataSize/responseTime)}B/ms</div>
+                `;
+                
+                resultDiv.innerHTML = result;
+                testResults.push({test: 'Performance', status, details: {responseTime, dataSize}});
+                
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">❌ Erro no teste: ${error.message}</div>`;
+                testResults.push({test: 'Performance', status: 'error', details: error.message});
+            }
+            
+            updateSummary();
+        }
+
+        // Teste 3: Visual
+        async function testVisual() {
+            const resultDiv = document.getElementById('visual-result');
+            resultDiv.innerHTML = '🔄 Testando interface...';
+            
+            try {
+                // Testar se a classe WindAnimation existe
+                if (typeof WindAnimation === 'undefined') {
+                    throw new Error('Classe WindAnimation não encontrada');
+                }
+                
+                // Testar instância global
+                if (typeof windAnimation === 'undefined') {
+                    throw new Error('Instância windAnimation não encontrada');
+                }
+                
+                // Testar função toggle
+                if (typeof toggleWindAnimation !== 'function') {
+                    throw new Error('Função toggleWindAnimation não encontrada');
+                }
+                
+                // Testar carregamento de dados
+                const success = await windAnimation.loadAnimation(2);
+                
+                if (!success) {
+                    throw new Error('Falha ao carregar dados da animação');
+                }
+                
+                // Mostrar controles
+                windAnimation.show();
+                
+                const result = `
+                    <div class="success">✅ Interface funcionando!</div>
+                    <div class="info">🎬 Controles carregados</div>
+                    <div class="info">📊 ${windAnimation.frames.length} frames disponíveis</div>
+                    <div class="info">🎮 Controles de reprodução OK</div>
+                `;
+                
+                resultDiv.innerHTML = result;
+                testResults.push({test: 'Visual', status: 'success', details: 'Interface OK'});
+                
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">❌ Erro visual: ${error.message}</div>`;
+                testResults.push({test: 'Visual', status: 'error', details: error.message});
+            }
+            
+            updateSummary();
+        }
+
+        // Teste 4: Integração
+        async function testIntegration() {
+            const resultDiv = document.getElementById('integration-result');
+            resultDiv.innerHTML = '🔄 Testando integração...';
+            
+            try {
+                // Testar endpoints existentes
+                const endpoints = [
+                    '/cptec/canal16/latest',
+                    '/api/v1/grib2/wind-barbs'
+                ];
+                
+                let results = [];
+                
+                for (const endpoint of endpoints) {
+                    try {
+                        const response = await fetch(endpoint);
+                        results.push({
+                            endpoint,
+                            status: response.ok ? 'OK' : 'ERRO',
+                            code: response.status
+                        });
+                    } catch (e) {
+                        results.push({
+                            endpoint,
+                            status: 'ERRO',
+                            code: 'N/A'
+                        });
+                    }
+                }
+                
+                const allOk = results.every(r => r.status === 'OK');
+                
+                const resultHtml = `
+                    <div class="${allOk ? 'success' : 'error'}">
+                        ${allOk ? '✅ Integração OK' : '❌ Problemas na integração'}
+                    </div>
+                    ${results.map(r => 
+                        `<div class="info">🔗 ${r.endpoint}: ${r.status} (${r.code})</div>`
+                    ).join('')}
+                `;
+                
+                resultDiv.innerHTML = resultHtml;
+                testResults.push({test: 'Integração', status: allOk ? 'success' : 'error', details: results});
+                
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">❌ Erro na integração: ${error.message}</div>`;
+                testResults.push({test: 'Integração', status: 'error', details: error.message});
+            }
+            
+            updateSummary();
+        }
+
+        // Atualizar resumo
+        function updateSummary() {
+            const summaryDiv = document.getElementById('test-summary');
+            const total = testResults.length;
+            const success = testResults.filter(r => r.status === 'success').length;
+            const errors = testResults.filter(r => r.status === 'error').length;
+            
+            summaryDiv.innerHTML = `
+                <div>📊 Total: ${total} testes</div>
+                <div class="success">✅ Sucessos: ${success}</div>
+                <div class="error">❌ Erros: ${errors}</div>
+                <div>📈 Taxa de sucesso: ${Math.round((success/total)*100)}%</div>
+            `;
+        }
+
+        // Executar todos os testes
+        async function runAllTests() {
+            testResults = [];
+            await testAPI();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            await testPerformance();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            await testVisual();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            await testIntegration();
+        }
+
+        // Auto-executar testes ao carregar
+        window.addEventListener('load', () => {
+            console.log('🧪 Página de testes carregada');
+        });
+    </script>
+</body>
+</html>

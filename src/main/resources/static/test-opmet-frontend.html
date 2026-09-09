@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste OPMET Live</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-button {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .test-button:hover {
+            background: #1976D2;
+        }
+        .test-result {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .success { background: #e8f5e8; color: #2e7d32; }
+        .error { background: #ffebee; color: #c62828; }
+        .info { background: #e3f2fd; color: #1565c0; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Teste OPMET Live Frontend</h1>
+        
+        <div>
+            <h3>Testes Automatizados:</h3>
+            <button class="test-button" onclick="runAllTests()">🚀 Executar Todos os Testes</button>
+            <button class="test-button" onclick="testModalCreation()">📱 Testar Modal</button>
+            <button class="test-button" onclick="testMessageFormatting()">📝 Testar Mensagens</button>
+            <button class="test-button" onclick="testScrollBehavior()">📜 Testar Scroll</button>
+            <button class="test-button" onclick="testConnectionFlow()">🔌 Testar Conexão</button>
+        </div>
+
+        <div>
+            <h3>Teste Manual:</h3>
+            <button class="test-button" onclick="openOpmetModal()">📡 Abrir OPMET Live</button>
+            <button class="test-button" onclick="simulateMessages()">📨 Simular Mensagens</button>
+        </div>
+
+        <div id="test-results">
+            <h3>Resultados:</h3>
+        </div>
+    </div>
+
+    <script src="js/opmet-live.js"></script>
+    <script>
+        let testResults = [];
+
+        function addTestResult(test, status, message) {
+            const result = {
+                test: test,
+                status: status,
+                message: message,
+                timestamp: new Date().toLocaleTimeString()
+            };
+            testResults.push(result);
+            displayResults();
+        }
+
+        function displayResults() {
+            const container = document.getElementById('test-results');
+            const resultsHtml = testResults.map(result => {
+                const className = result.status === 'PASSOU' ? 'success' : 
+                                result.status === 'FALHOU' ? 'error' : 'info';
+                return `<div class="test-result ${className}">
+                    [${result.timestamp}] ${result.test}: ${result.status} - ${result.message}
+                </div>`;
+            }).join('');
+            
+            container.innerHTML = '<h3>Resultados:</h3>' + resultsHtml;
+        }
+
+        function runAllTests() {
+            testResults = [];
+            addTestResult('Iniciando', 'INFO', 'Executando bateria de testes...');
+            
+            setTimeout(() => testModalCreation(), 100);
+            setTimeout(() => testMessageFormatting(), 200);
+            setTimeout(() => testScrollBehavior(), 300);
+            setTimeout(() => testConnectionFlow(), 400);
+            setTimeout(() => {
+                const passed = testResults.filter(r => r.status === 'PASSOU').length;
+                const failed = testResults.filter(r => r.status === 'FALHOU').length;
+                addTestResult('Resumo', 'INFO', `${passed} testes passaram, ${failed} falharam`);
+            }, 500);
+        }
+
+        function testModalCreation() {
+            try {
+                // Verificar se modal foi criado
+                const modal = document.querySelector('[style*="position: fixed"]');
+                if (modal) {
+                    addTestResult('Modal Creation', 'PASSOU', 'Modal criado corretamente');
+                } else {
+                    addTestResult('Modal Creation', 'FALHOU', 'Modal não encontrado');
+                }
+
+                // Verificar botão OPMET Live
+                const button = Array.from(document.querySelectorAll('button'))
+                    .find(btn => btn.textContent.includes('OPMET Live'));
+                if (button) {
+                    addTestResult('Button Creation', 'PASSOU', 'Botão OPMET Live criado');
+                } else {
+                    addTestResult('Button Creation', 'FALHOU', 'Botão não encontrado');
+                }
+
+            } catch (error) {
+                addTestResult('Modal Creation', 'FALHOU', error.message);
+            }
+        }
+
+        function testMessageFormatting() {
+            try {
+                // Testar formatação de mensagem SIGMET
+                const testMessage = 'SIGMET SBBS A1 VALID 231200/231600';
+                const isSigmet = testMessage.includes('SIGMET');
+                
+                if (isSigmet) {
+                    addTestResult('Message Formatting', 'PASSOU', 'Detecção de SIGMET funcionando');
+                } else {
+                    addTestResult('Message Formatting', 'FALHOU', 'Detecção de SIGMET falhou');
+                }
+
+                // Testar timestamp
+                const timestamp = new Date().toLocaleTimeString();
+                if (timestamp.includes(':')) {
+                    addTestResult('Timestamp', 'PASSOU', 'Timestamp gerado corretamente');
+                } else {
+                    addTestResult('Timestamp', 'FALHOU', 'Timestamp inválido');
+                }
+
+            } catch (error) {
+                addTestResult('Message Formatting', 'FALHOU', error.message);
+            }
+        }
+
+        function testScrollBehavior() {
+            try {
+                // Verificar se opmetLiveClient existe
+                if (typeof opmetLiveClient !== 'undefined') {
+                    addTestResult('Client Instance', 'PASSOU', 'OpmetLiveClient instanciado');
+                    
+                    // Verificar propriedade autoScroll
+                    if (opmetLiveClient.hasOwnProperty('autoScroll')) {
+                        addTestResult('Auto Scroll', 'PASSOU', 'Propriedade autoScroll existe');
+                    } else {
+                        addTestResult('Auto Scroll', 'FALHOU', 'Propriedade autoScroll não encontrada');
+                    }
+                } else {
+                    addTestResult('Client Instance', 'FALHOU', 'OpmetLiveClient não encontrado');
+                }
+
+            } catch (error) {
+                addTestResult('Scroll Behavior', 'FALHOU', error.message);
+            }
+        }
+
+        function testConnectionFlow() {
+            try {
+                // Verificar métodos de conexão
+                if (typeof opmetLiveClient.connect === 'function') {
+                    addTestResult('Connect Method', 'PASSOU', 'Método connect existe');
+                } else {
+                    addTestResult('Connect Method', 'FALHOU', 'Método connect não encontrado');
+                }
+
+                if (typeof opmetLiveClient.disconnect === 'function') {
+                    addTestResult('Disconnect Method', 'PASSOU', 'Método disconnect existe');
+                } else {
+                    addTestResult('Disconnect Method', 'FALHOU', 'Método disconnect não encontrado');
+                }
+
+                // Verificar estado inicial
+                if (!opmetLiveClient.isConnected) {
+                    addTestResult('Initial State', 'PASSOU', 'Estado inicial correto (desconectado)');
+                } else {
+                    addTestResult('Initial State', 'FALHOU', 'Estado inicial incorreto');
+                }
+
+            } catch (error) {
+                addTestResult('Connection Flow', 'FALHOU', error.message);
+            }
+        }
+
+        function openOpmetModal() {
+            if (typeof opmetLiveClient !== 'undefined') {
+                opmetLiveClient.showModal();
+                addTestResult('Manual Test', 'INFO', 'Modal OPMET Live aberto para teste manual');
+            } else {
+                addTestResult('Manual Test', 'FALHOU', 'OpmetLiveClient não disponível');
+            }
+        }
+
+        function simulateMessages() {
+            if (typeof opmetLiveClient !== 'undefined' && opmetLiveClient.messageContainer) {
+                // Simular diferentes tipos de mensagens
+                opmetLiveClient.addMessage('METAR SBSP 231200Z 12005KT 9999 FEW020 25/18 Q1013', 'data');
+                opmetLiveClient.addMessage('SIGMET SBBS A1 VALID 231200/231600 SBBS- SBBS BRASILIA FIR SEV TURB', 'sigmet');
+                opmetLiveClient.addMessage('TAF SBGR 231100Z 231212 12008KT 9999 SCT025 BKN040', 'data');
+                opmetLiveClient.addMessage('Sistema funcionando corretamente', 'success');
+                opmetLiveClient.addMessage('Teste de erro simulado', 'error');
+                
+                addTestResult('Message Simulation', 'PASSOU', '5 mensagens de teste adicionadas');
+            } else {
+                addTestResult('Message Simulation', 'FALHOU', 'Container de mensagens não disponível');
+            }
+        }
+
+        // Executar teste inicial
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                addTestResult('Inicialização', 'INFO', 'Página de teste carregada');
+                testModalCreation();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

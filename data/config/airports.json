@@ -1,0 +1,548 @@
+[
+  {
+    "icao": "SBGR",
+    "nome": "Guarulhos",
+    "lat": -23.432,
+    "lon": -46.469
+  },
+  {
+    "icao": "SBSP",
+    "nome": "Congonhas",
+    "lat": -23.626,
+    "lon": -46.656
+  },
+  {
+    "icao": "SBRJ",
+    "nome": "Santos Dumont",
+    "lat": -22.91,
+    "lon": -43.163
+  },
+  {
+    "icao": "SBGL",
+    "nome": "Galeão",
+    "lat": -22.809,
+    "lon": -43.25
+  },
+  {
+    "icao": "SBCF",
+    "nome": "Confins",
+    "lat": -19.624,
+    "lon": -43.971
+  },
+  {
+    "icao": "SBSV",
+    "nome": "Salvador",
+    "lat": -12.908,
+    "lon": -38.322
+  },
+  {
+    "icao": "SBRF",
+    "nome": "Recife",
+    "lat": -8.126,
+    "lon": -34.923
+  },
+  {
+    "icao": "SBCY",
+    "nome": "Cuiabá",
+    "lat": -15.653,
+    "lon": -56.117
+  },
+  {
+    "icao": "SBCT",
+    "nome": "Curitiba",
+    "lat": -25.528,
+    "lon": -49.176
+  },
+  {
+    "icao": "SBPA",
+    "nome": "Porto Alegre",
+    "lat": -29.994,
+    "lon": -51.171
+  },
+  {
+    "icao": "SBGO",
+    "nome": "Goiânia",
+    "lat": -16.632,
+    "lon": -49.221
+  },
+  {
+    "icao": "SBKP",
+    "nome": "Campinas",
+    "lat": -23.007,
+    "lon": -47.134
+  },
+  {
+    "icao": "SBBE",
+    "nome": "Belém",
+    "lat": -1.379,
+    "lon": -48.476
+  },
+  {
+    "icao": "SBMQ",
+    "nome": "Macapá",
+    "lat": 0.05,
+    "lon": -51.072
+  },
+  {
+    "icao": "SBSL",
+    "nome": "São Luís",
+    "lat": -2.585,
+    "lon": -44.234
+  },
+  {
+    "icao": "SBFZ",
+    "nome": "Fortaleza",
+    "lat": -3.776,
+    "lon": -38.533
+  },
+  {
+    "icao": "SBMO",
+    "nome": "Maceió",
+    "lat": -9.511,
+    "lon": -35.792
+  },
+  {
+    "icao": "SBCG",
+    "nome": "Campo Grande",
+    "lat": -20.469,
+    "lon": -54.672
+  },
+  {
+    "icao": "SBJP",
+    "nome": "João Pessoa",
+    "lat": -7.148,
+    "lon": -34.948
+  },
+  {
+    "icao": "SBVT",
+    "nome": "Vitória",
+    "lat": -20.258,
+    "lon": -40.286
+  },
+  {
+    "icao": "SBEG",
+    "nome": "Manaus",
+    "lat": -3.038,
+    "lon": -60.049
+  },
+  {
+    "icao": "SBOI",
+    "nome": "Oiapoque",
+    "lat": 3.855,
+    "lon": -51.797
+  },
+  {
+    "icao": "SBMN",
+    "nome": "Manaus Militar",
+    "lat": -3.146,
+    "lon": -59.986
+  },
+  {
+    "icao": "SBBR",
+    "nome": "Brasília",
+    "lat": -15.871,
+    "lon": -47.919
+  },
+  {
+    "icao": "SBAX",
+    "nome": "Araxá",
+    "lat": -19.563,
+    "lon": -46.96
+  },
+  {
+    "icao": "SBBU",
+    "nome": "Bauru",
+    "lat": -22.345,
+    "lon": -49.053
+  },
+  {
+    "icao": "SBBH",
+    "nome": "Belo Horizonte",
+    "lat": -19.851,
+    "lon": -43.95
+  },
+  {
+    "icao": "SBSM",
+    "nome": "Santa Maria",
+    "lat": -29.711,
+    "lon": -53.688
+  },
+  {
+    "icao": "SBFN",
+    "nome": "Fernando de Noronha",
+    "lat": -3.849,
+    "lon": -32.424
+  },
+  {
+    "icao": "SBNT",
+    "nome": "Natal",
+    "lat": -5.911,
+    "lon": -35.248
+  },
+  {
+    "icao": "SBFL",
+    "nome": "Florianópolis",
+    "lat": -27.67,
+    "lon": -48.552
+  },
+  {
+    "icao": "SBPJ",
+    "nome": "Palmas",
+    "lat": -10.292,
+    "lon": -48.357
+  },
+  {
+    "icao": "SBCZ",
+    "nome": "Cruzeiro do Sul",
+    "lat": -7.599,
+    "lon": -72.769
+  },
+  {
+    "icao": "SBCA",
+    "nome": "Cascavel",
+    "lat": -25.0,
+    "lon": -53.501
+  },
+  {
+    "icao": "SBLO",
+    "nome": "Londrina",
+    "lat": -23.333,
+    "lon": -51.13
+  },
+  {
+    "icao": "SBSJ",
+    "nome": "São José dos Campos",
+    "lat": -23.228,
+    "lon": -45.862
+  },
+  {
+    "icao": "SBTA",
+    "nome": "Taubaté",
+    "lat": -23.04,
+    "lon": -45.516
+  },
+  {
+    "icao": "SBMT",
+    "nome": "Campo de Marte",
+    "lat": -23.508,
+    "lon": -46.637
+  },
+  {
+    "icao": "SBZM",
+    "nome": "Zumbi dos Palmares",
+    "lat": -9.324,
+    "lon": -35.791
+  },
+  {
+    "icao": "SBST",
+    "nome": "Santos",
+    "lat": -23.928,
+    "lon": -46.299
+  },
+  {
+    "icao": "SBPK",
+    "nome": "Pelotas",
+    "lat": -31.718,
+    "lon": -52.328
+  },
+  {
+    "icao": "SBUG",
+    "nome": "Uruguaiana",
+    "lat": -29.782,
+    "lon": -57.038
+  },
+  {
+    "icao": "SBBG",
+    "nome": "Bagé",
+    "lat": -31.39,
+    "lon": -54.112
+  },
+  {
+    "icao": "SUMU",
+    "nome": "Montevidéu",
+    "lat": -34.838,
+    "lon": -56.031
+  },
+  {
+    "icao": "SAAR",
+    "nome": "Rosario",
+    "lat": -32.903,
+    "lon": -60.785
+  },
+  {
+    "icao": "SBFI",
+    "nome": "Foz do Iguaçu",
+    "lat": -25.6,
+    "lon": -54.487
+  },
+  {
+    "icao": "SBDO",
+    "nome": "Dourados",
+    "lat": -22.201,
+    "lon": -54.926
+  },
+  {
+    "icao": "SBAN",
+    "nome": "Anápolis",
+    "lat": -16.362,
+    "lon": -48.927
+  },
+  {
+    "icao": "SBCN",
+    "nome": "Caldas Novas",
+    "lat": -17.724,
+    "lon": -48.607
+  },
+  {
+    "icao": "SBIT",
+    "nome": "Itumbiara",
+    "lat": -18.445,
+    "lon": -49.213
+  },
+  {
+    "icao": "SBNV",
+    "nome": "Novo Progresso",
+    "lat": -7.126,
+    "lon": -55.401
+  },
+  {
+    "icao": "SBSG",
+    "nome": "São Gonçalo do Amarante",
+    "lat": -5.768,
+    "lon": -35.368
+  },
+  {
+    "icao": "SBUR",
+    "nome": "Uberaba",
+    "lat": -19.765,
+    "lon": -47.966
+  },
+  {
+    "icao": "SBUL",
+    "nome": "Uberlândia",
+    "lat": -18.883,
+    "lon": -48.225
+  },
+  {
+    "icao": "SBTD",
+    "nome": "Toledo",
+    "lat": -24.686,
+    "lon": -53.697
+  },
+  {
+    "icao": "SSUM",
+    "nome": "União da Vitória",
+    "lat": -26.232,
+    "lon": -51.053
+  },
+  {
+    "icao": "SBPP",
+    "nome": "Ponta Porã",
+    "lat": -22.549,
+    "lon": -55.702
+  },
+  {
+    "icao": "SBIL",
+    "nome": "Ilhéus",
+    "lat": -14.816,
+    "lon": -39.033
+  },
+  {
+    "icao": "SBAR",
+    "nome": "Aracaju",
+    "lat": -10.984,
+    "lon": -37.071
+  },
+  {
+    "icao": "SBTE",
+    "nome": "Teresina",
+    "lat": -5.06,
+    "lon": -42.823
+  },
+  {
+    "icao": "SBMK",
+    "nome": "Montes Claros",
+    "lat": -16.706,
+    "lon": -43.819
+  },
+  {
+    "icao": "SBPL",
+    "nome": "Patos de Minas",
+    "lat": -18.672,
+    "lon": -46.491
+  },
+  {
+    "icao": "SBCR",
+    "nome": "Corumbá",
+    "lat": -19.009,
+    "lon": -57.673
+  },
+  {
+    "icao": "SBPV",
+    "nome": "Porto Velho",
+    "lat": -8.709,
+    "lon": -63.902
+  },
+  {
+    "icao": "SBIZ",
+    "nome": "Imperatriz",
+    "lat": -5.531,
+    "lon": -47.46
+  },
+  {
+    "icao": "SBMA",
+    "nome": "Marabá",
+    "lat": -5.369,
+    "lon": -49.138
+  },
+  {
+    "icao": "SBSN",
+    "nome": "Santarém",
+    "lat": -2.424,
+    "lon": -54.785
+  },
+  {
+    "icao": "SBKG",
+    "nome": "Campina Grande",
+    "lat": -7.269,
+    "lon": -35.896
+  },
+  {
+    "icao": "SBJU",
+    "nome": "Juazeiro do Norte",
+    "lat": -7.218,
+    "lon": -39.27
+  },
+  {
+    "icao": "SBCP",
+    "nome": "Campos dos Goytacazes",
+    "lat": -21.698,
+    "lon": -41.301
+  },
+  {
+    "icao": "SBRB",
+    "nome": "Rio Branco",
+    "lat": -9.869,
+    "lon": -67.898
+  },
+  {
+    "icao": "SBBI",
+    "nome": "Bacacheri",
+    "lat": -25.405,
+    "lon": -49.232
+  },
+  {
+    "icao": "SBJV",
+    "nome": "Joinville",
+    "lat": -26.224,
+    "lon": -48.798
+  },
+  {
+    "icao": "SBNF",
+    "nome": "Navegantes",
+    "lat": -26.88,
+    "lon": -48.651
+  },
+  {
+    "icao": "SBYS",
+    "nome": "Piracicaba",
+    "lat": -22.7006,
+    "lon": -47.5848
+  },
+  {
+    "icao": "SBRC",
+    "nome": "Rio Claro",
+    "lat": -22.475,
+    "lon": -47.5261
+  },
+  {
+    "icao": "SDCO",
+    "nome": "Sorocaba",
+    "lat": -23.48,
+    "lon": -47.49
+  },
+  {
+    "icao": "SBAF",
+    "nome": "Santa Cruz",
+    "lat": -22.9325,
+    "lon": -43.7192
+  },
+  {
+    "icao": "SBSC",
+    "nome": "São Carlos",
+    "lat": -21.8756,
+    "lon": -47.9028
+  },
+  {
+    "icao": "SBME",
+    "nome": "Macaé",
+    "lat": -22.343,
+    "lon": -41.766
+  },
+  {
+    "icao": "SBMI",
+    "nome": "Marília",
+    "lat": -22.1969,
+    "lon": -49.9264
+  },
+  {
+    "icao": "SDAG",
+    "nome": "Angra dos Reis",
+    "lat": -23.0069,
+    "lon": -44.3072
+  },
+  {
+    "icao": "SBCB",
+    "nome": "Cabo Frio",
+    "lat": -22.921,
+    "lon": -42.0743
+  },
+  {
+    "icao": "SBES",
+    "nome": "São Pedro da Aldeia",
+    "lat": -22.809,
+    "lon": -42.104
+  },
+  {
+    "icao": "SBFS",
+    "nome": "Farol de São Tomé",
+    "lat": -22.0019,
+    "lon": -41.0561
+  },
+  {
+    "icao": "SBEC",
+    "nome": "Bacacheri",
+    "lat": -25.4051,
+    "lon": -49.2319
+  },
+  {
+    "icao": "SBEN",
+    "nome": "Navegantes",
+    "lat": -26.88,
+    "lon": -48.6514
+  },
+  {
+    "icao": "SBLB",
+    "nome": "Lábrea",
+    "lat": -7.2789,
+    "lon": -64.7695
+  },
+  {
+    "icao": "SBLI",
+    "nome": "Lins",
+    "lat": -21.6639,
+    "lon": -49.7306
+  },
+  {
+    "icao": "SBMM",
+    "nome": "Maturacá",
+    "lat": 0.6219,
+    "lon": -66.1128
+  },
+  {
+    "icao": "SBAQ",
+    "nome": "Araraquara",
+    "lat": -21.812,
+    "lon": -48.133
+  }
+]

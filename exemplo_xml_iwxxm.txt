@@ -1,0 +1,352 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<MeteorologicalBulletin
+    xmlns="http://def.wmo.int/collect/2014"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://def.wmo.int/collect/2014 http://schemas.wmo.int/collect/1.2/collect.xsd" gml:id="uuid.0fba8b33-3c1b-4a50-97aa-6ff2e1889b1e">
+    <meteorologicalInformation>
+        <iwxxm:SPECI
+            xmlns:aixm="http://www.aixm.aero/schema/5.1.1"
+            xmlns:iwxxm="http://icao.int/iwxxm/3.0"
+            xmlns:gml="http://www.opengis.net/gml/3.2"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://icao.int/iwxxm/3.0 https://schemas.wmo.int/iwxxm/3.0/iwxxm.xsd http://www.weather.gov/iwxxm-us/3.0 https://nws.weather.gov/schemas/iwxxm-us/3.0/metarSpeci.xsd" reportStatus="NORMAL" automatedStation="true" permissibleUsage="OPERATIONAL" translationCentreName="NCEP Central Operations" translationCentreDesignator="KWNO" translationTime="2025-07-28T05:22:04Z" translatedBulletinReceptionTime="2025-07-28T05:22:04Z" translatedBulletinID="SPUS21KWBC280522" gml:id="uuid.38c29660-e0de-48f9-a2e7-8baec411f259"
+            xmlns:iwxxm-us="http://www.weather.gov/iwxxm-us/3.0">
+            <iwxxm:issueTime>
+                <gml:TimeInstant gml:id="uuid.da7ea29b-7669-4b84-8a60-202897639027">
+                    <gml:timePosition>2025-07-28T05:18:00Z</gml:timePosition>
+                </gml:TimeInstant>
+            </iwxxm:issueTime>
+            <iwxxm:aerodrome>
+                <aixm:AirportHeliport gml:id="uuid.1264f71f-1c7c-4fe6-8b6d-933c3cfcc2ac">
+                    <aixm:timeSlice>
+                        <aixm:AirportHeliportTimeSlice gml:id="uuid.9a0513b9-b7cb-46b1-bcab-07a5556f504f">
+                            <gml:validTime />
+                            <aixm:interpretation>SNAPSHOT</aixm:interpretation>
+                            <aixm:designator>KRDG</aixm:designator>
+                            <aixm:name>READING, READING REGIONAL AIRPORT</aixm:name>
+                            <aixm:locationIndicatorICAO>KRDG</aixm:locationIndicatorICAO>
+                            <aixm:ARP>
+                                <aixm:ElevatedPoint srsDimension="2" srsName="http://www.opengis.net/def/crs/EPSG/0/4326" axisLabels="Lat Long" gml:id="uuid.9bc6a610-f4d6-4494-b3df-97e26b08c7c1">
+                                    <gml:pos>40.373 -75.959</gml:pos>
+                                </aixm:ElevatedPoint>
+                            </aixm:ARP>
+                        </aixm:AirportHeliportTimeSlice>
+                    </aixm:timeSlice>
+                </aixm:AirportHeliport>
+            </iwxxm:aerodrome>
+            <iwxxm:observationTime xlink:href="#uuid.da7ea29b-7669-4b84-8a60-202897639027" />
+            <iwxxm:observation>
+                <iwxxm:MeteorologicalAerodromeObservation gml:id="uuid.5c353079-c4c3-4429-950a-459873a24f4c" cloudAndVisibilityOK="false">
+                    <iwxxm:airTemperature uom="Cel">23.9</iwxxm:airTemperature>
+                    <iwxxm:dewpointTemperature uom="Cel">22.2</iwxxm:dewpointTemperature>
+                    <iwxxm:qnh uom="hPa">1015.2</iwxxm:qnh>
+                    <iwxxm:surfaceWind>
+                        <iwxxm:AerodromeSurfaceWind variableWindDirection="false">
+                            <iwxxm:meanWindDirection uom="deg">40</iwxxm:meanWindDirection>
+                            <iwxxm:meanWindSpeed uom="[kn_i]">3</iwxxm:meanWindSpeed>
+                        </iwxxm:AerodromeSurfaceWind>
+                    </iwxxm:surfaceWind>
+                    <iwxxm:visibility>
+                        <iwxxm:AerodromeHorizontalVisibility>
+                            <iwxxm:prevailingVisibility uom="m">2800</iwxxm:prevailingVisibility>
+                        </iwxxm:AerodromeHorizontalVisibility>
+                    </iwxxm:visibility>
+                    <iwxxm:presentWeather xlink:href="http://codes.wmo.int/306/4678/BR" />
+                    <iwxxm:cloud>
+                        <iwxxm:AerodromeCloud>
+                            <iwxxm:layer>
+                                <iwxxm:CloudLayer>
+                                    <iwxxm:amount xsi:nil="true" nilReason="http://codes.wmo.int/common/nil/notDetectedByAutoSystem" xlink:title="CLR" />
+                                    <iwxxm:base nilReason="http://codes.wmo.int/common/nil/notDetectedByAutoSystem" xsi:nil="true" uom="N/A" />
+                                </iwxxm:CloudLayer>
+                            </iwxxm:layer>
+                        </iwxxm:AerodromeCloud>
+                    </iwxxm:cloud>
+                    <iwxxm:extension>
+                        <Addendum
+                            xmlns="http://www.weather.gov/iwxxm-us/3.0">
+                            <observingSystemType xlink:href="https://codes.nws.noaa.gov/FMH-1/ObservingSystemType/AO2" />
+                        </Addendum>
+                    </iwxxm:extension>
+                </iwxxm:MeteorologicalAerodromeObservation>
+            </iwxxm:observation>
+        </iwxxm:SPECI>
+    </meteorologicalInformation>
+    <meteorologicalInformation>
+        <iwxxm:SPECI
+            xmlns:aixm="http://www.aixm.aero/schema/5.1.1"
+            xmlns:iwxxm="http://icao.int/iwxxm/3.0"
+            xmlns:gml="http://www.opengis.net/gml/3.2"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://icao.int/iwxxm/3.0 https://schemas.wmo.int/iwxxm/3.0/iwxxm.xsd http://www.weather.gov/iwxxm-us/3.0 https://nws.weather.gov/schemas/iwxxm-us/3.0/metarSpeci.xsd" reportStatus="NORMAL" automatedStation="true" permissibleUsage="OPERATIONAL" translationCentreName="NCEP Central Operations" translationCentreDesignator="KWNO" translationTime="2025-07-28T05:22:04Z" translatedBulletinReceptionTime="2025-07-28T05:22:04Z" translatedBulletinID="SPUS21KWBC280522" gml:id="uuid.45e0dd29-ad2e-4df8-b671-746ea09c337f"
+            xmlns:iwxxm-us="http://www.weather.gov/iwxxm-us/3.0">
+            <iwxxm:issueTime>
+                <gml:TimeInstant gml:id="uuid.fc3cf695-b3c0-4b4b-aa55-3af7772af08e">
+                    <gml:timePosition>2025-07-28T05:18:00Z</gml:timePosition>
+                </gml:TimeInstant>
+            </iwxxm:issueTime>
+            <iwxxm:aerodrome>
+                <aixm:AirportHeliport gml:id="uuid.4151428b-9a05-40e0-ad5b-54be30e0b228">
+                    <aixm:timeSlice>
+                        <aixm:AirportHeliportTimeSlice gml:id="uuid.83245e08-2c11-4b41-9489-7ecf1484e850">
+                            <gml:validTime />
+                            <aixm:interpretation>SNAPSHOT</aixm:interpretation>
+                            <aixm:designator>KZZV</aixm:designator>
+                            <aixm:name>ZANESVILLE MUNICIPAL AIRPORT</aixm:name>
+                            <aixm:locationIndicatorICAO>KZZV</aixm:locationIndicatorICAO>
+                            <aixm:ARP>
+                                <aixm:ElevatedPoint srsDimension="2" srsName="http://www.opengis.net/def/crs/EPSG/0/4326" axisLabels="Lat Long" gml:id="uuid.269988d3-7ccf-4869-a6c6-58461b3ea16f">
+                                    <gml:pos>39.946 -81.893</gml:pos>
+                                </aixm:ElevatedPoint>
+                            </aixm:ARP>
+                        </aixm:AirportHeliportTimeSlice>
+                    </aixm:timeSlice>
+                </aixm:AirportHeliport>
+            </iwxxm:aerodrome>
+            <iwxxm:observationTime xlink:href="#uuid.fc3cf695-b3c0-4b4b-aa55-3af7772af08e" />
+            <iwxxm:observation>
+                <iwxxm:MeteorologicalAerodromeObservation gml:id="uuid.930a2235-b4cc-4fc9-943c-9719590cf804" cloudAndVisibilityOK="false">
+                    <iwxxm:airTemperature uom="Cel">22.8</iwxxm:airTemperature>
+                    <iwxxm:dewpointTemperature uom="Cel">22.2</iwxxm:dewpointTemperature>
+                    <iwxxm:qnh uom="hPa">1019.6</iwxxm:qnh>
+                    <iwxxm:surfaceWind>
+                        <iwxxm:AerodromeSurfaceWind variableWindDirection="false">
+                            <iwxxm:meanWindDirection uom="deg">210</iwxxm:meanWindDirection>
+                            <iwxxm:meanWindSpeed uom="[kn_i]">3</iwxxm:meanWindSpeed>
+                        </iwxxm:AerodromeSurfaceWind>
+                    </iwxxm:surfaceWind>
+                    <iwxxm:visibility>
+                        <iwxxm:AerodromeHorizontalVisibility>
+                            <iwxxm:prevailingVisibility uom="m">3200</iwxxm:prevailingVisibility>
+                        </iwxxm:AerodromeHorizontalVisibility>
+                    </iwxxm:visibility>
+                    <iwxxm:presentWeather xlink:href="http://codes.wmo.int/306/4678/BR" />
+                    <iwxxm:cloud>
+                        <iwxxm:AerodromeCloud>
+                            <iwxxm:layer>
+                                <iwxxm:CloudLayer>
+                                    <iwxxm:amount xlink:href="http://codes.wmo.int/49-2/CloudAmountReportedAtAerodrome/OVC" />
+                                    <iwxxm:base uom="[ft_i]">200</iwxxm:base>
+                                </iwxxm:CloudLayer>
+                            </iwxxm:layer>
+                        </iwxxm:AerodromeCloud>
+                    </iwxxm:cloud>
+                    <iwxxm:extension>
+                        <Addendum
+                            xmlns="http://www.weather.gov/iwxxm-us/3.0">
+                            <observingSystemType xlink:href="https://codes.nws.noaa.gov/FMH-1/ObservingSystemType/AO2" />
+                        </Addendum>
+                    </iwxxm:extension>
+                </iwxxm:MeteorologicalAerodromeObservation>
+            </iwxxm:observation>
+        </iwxxm:SPECI>
+    </meteorologicalInformation>
+    <meteorologicalInformation>
+        <iwxxm:SPECI
+            xmlns:aixm="http://www.aixm.aero/schema/5.1.1"
+            xmlns:iwxxm="http://icao.int/iwxxm/3.0"
+            xmlns:gml="http://www.opengis.net/gml/3.2"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://icao.int/iwxxm/3.0 https://schemas.wmo.int/iwxxm/3.0/iwxxm.xsd http://www.weather.gov/iwxxm-us/3.0 https://nws.weather.gov/schemas/iwxxm-us/3.0/metarSpeci.xsd" reportStatus="NORMAL" automatedStation="true" permissibleUsage="OPERATIONAL" translationCentreName="NCEP Central Operations" translationCentreDesignator="KWNO" translationTime="2025-07-28T05:22:04Z" translatedBulletinReceptionTime="2025-07-28T05:22:04Z" translatedBulletinID="SPUS21KWBC280522" gml:id="uuid.7c3f55df-d2c4-448f-85bf-8e95e3198a2f"
+            xmlns:iwxxm-us="http://www.weather.gov/iwxxm-us/3.0">
+            <iwxxm:issueTime>
+                <gml:TimeInstant gml:id="uuid.0e14f402-51eb-4227-a1be-1d4b099cf97f">
+                    <gml:timePosition>2025-07-28T05:15:00Z</gml:timePosition>
+                </gml:TimeInstant>
+            </iwxxm:issueTime>
+            <iwxxm:aerodrome>
+                <aixm:AirportHeliport gml:id="uuid.e6b3b768-cc74-4cef-99f9-00155760076b">
+                    <aixm:timeSlice>
+                        <aixm:AirportHeliportTimeSlice gml:id="uuid.239e6879-46bd-438d-8244-3b3e5779898c">
+                            <gml:validTime />
+                            <aixm:interpretation>SNAPSHOT</aixm:interpretation>
+                            <aixm:designator>KBED</aixm:designator>
+                            <aixm:name>LAURENCE G HANSCOM FIELD AIRPORT</aixm:name>
+                            <aixm:locationIndicatorICAO>KBED</aixm:locationIndicatorICAO>
+                            <aixm:ARP>
+                                <aixm:ElevatedPoint srsDimension="2" srsName="http://www.opengis.net/def/crs/EPSG/0/4326" axisLabels="Lat Long" gml:id="uuid.4b1916b2-d1c7-4071-b38f-79f7114d5b25">
+                                    <gml:pos>42.468 -71.295</gml:pos>
+                                </aixm:ElevatedPoint>
+                            </aixm:ARP>
+                        </aixm:AirportHeliportTimeSlice>
+                    </aixm:timeSlice>
+                </aixm:AirportHeliport>
+            </iwxxm:aerodrome>
+            <iwxxm:observationTime xlink:href="#uuid.0e14f402-51eb-4227-a1be-1d4b099cf97f" />
+            <iwxxm:observation>
+                <iwxxm:MeteorologicalAerodromeObservation gml:id="uuid.16e02e65-5837-4096-8b62-1a5a7799d387" cloudAndVisibilityOK="false">
+                    <iwxxm:airTemperature uom="Cel">20.0</iwxxm:airTemperature>
+                    <iwxxm:dewpointTemperature uom="Cel">20.0</iwxxm:dewpointTemperature>
+                    <iwxxm:qnh uom="hPa">1012.5</iwxxm:qnh>
+                    <iwxxm:surfaceWind>
+                        <iwxxm:AerodromeSurfaceWind variableWindDirection="false">
+                            <iwxxm:meanWindDirection uom="deg">0</iwxxm:meanWindDirection>
+                            <iwxxm:meanWindSpeed uom="[kn_i]">0</iwxxm:meanWindSpeed>
+                        </iwxxm:AerodromeSurfaceWind>
+                    </iwxxm:surfaceWind>
+                    <iwxxm:visibility>
+                        <iwxxm:AerodromeHorizontalVisibility>
+                            <iwxxm:prevailingVisibility uom="m">3200</iwxxm:prevailingVisibility>
+                        </iwxxm:AerodromeHorizontalVisibility>
+                    </iwxxm:visibility>
+                    <iwxxm:presentWeather xlink:href="http://codes.wmo.int/306/4678/HZ" />
+                    <iwxxm:cloud>
+                        <iwxxm:AerodromeCloud>
+                            <iwxxm:layer>
+                                <iwxxm:CloudLayer>
+                                    <iwxxm:amount xlink:href="http://codes.wmo.int/49-2/CloudAmountReportedAtAerodrome/FEW" />
+                                    <iwxxm:base uom="[ft_i]">10000</iwxxm:base>
+                                </iwxxm:CloudLayer>
+                            </iwxxm:layer>
+                        </iwxxm:AerodromeCloud>
+                    </iwxxm:cloud>
+                    <iwxxm:extension>
+                        <Addendum
+                            xmlns="http://www.weather.gov/iwxxm-us/3.0">
+                            <observingSystemType xlink:href="https://codes.nws.noaa.gov/FMH-1/ObservingSystemType/AO2" />
+                        </Addendum>
+                    </iwxxm:extension>
+                </iwxxm:MeteorologicalAerodromeObservation>
+            </iwxxm:observation>
+        </iwxxm:SPECI>
+    </meteorologicalInformation>
+    <meteorologicalInformation>
+        <iwxxm:SPECI
+            xmlns:aixm="http://www.aixm.aero/schema/5.1.1"
+            xmlns:iwxxm="http://icao.int/iwxxm/3.0"
+            xmlns:gml="http://www.opengis.net/gml/3.2"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://icao.int/iwxxm/3.0 https://schemas.wmo.int/iwxxm/3.0/iwxxm.xsd http://www.weather.gov/iwxxm-us/3.0 https://nws.weather.gov/schemas/iwxxm-us/3.0/metarSpeci.xsd" reportStatus="NORMAL" automatedStation="true" permissibleUsage="OPERATIONAL" translationCentreName="NCEP Central Operations" translationCentreDesignator="KWNO" translationTime="2025-07-28T05:22:04Z" translatedBulletinReceptionTime="2025-07-28T05:22:04Z" translatedBulletinID="SPUS21KWBC280522" gml:id="uuid.2e035d7e-d467-4fa1-a54e-18c22d07c6fb"
+            xmlns:iwxxm-us="http://www.weather.gov/iwxxm-us/3.0">
+            <iwxxm:issueTime>
+                <gml:TimeInstant gml:id="uuid.fdece3a3-ab83-4bce-b81f-a46004eeebaf">
+                    <gml:timePosition>2025-07-28T05:20:00Z</gml:timePosition>
+                </gml:TimeInstant>
+            </iwxxm:issueTime>
+            <iwxxm:aerodrome>
+                <aixm:AirportHeliport gml:id="uuid.7f67e375-db89-4d6d-8517-460e365198b1">
+                    <aixm:timeSlice>
+                        <aixm:AirportHeliportTimeSlice gml:id="uuid.6281ede2-9a75-4bd9-904c-e0644d86e206">
+                            <gml:validTime />
+                            <aixm:interpretation>SNAPSHOT</aixm:interpretation>
+                            <aixm:designator>KITH</aixm:designator>
+                            <aixm:name>ITHACA TOMPKINS INTERNATIONAL AIRPORT</aixm:name>
+                            <aixm:locationIndicatorICAO>KITH</aixm:locationIndicatorICAO>
+                            <aixm:ARP>
+                                <aixm:ElevatedPoint srsDimension="2" srsName="http://www.opengis.net/def/crs/EPSG/0/4326" axisLabels="Lat Long" gml:id="uuid.c56f66cc-1159-48a2-b5df-1274ca43a063">
+                                    <gml:pos>42.491 -76.458</gml:pos>
+                                </aixm:ElevatedPoint>
+                            </aixm:ARP>
+                        </aixm:AirportHeliportTimeSlice>
+                    </aixm:timeSlice>
+                </aixm:AirportHeliport>
+            </iwxxm:aerodrome>
+            <iwxxm:observationTime xlink:href="#uuid.fdece3a3-ab83-4bce-b81f-a46004eeebaf" />
+            <iwxxm:observation>
+                <iwxxm:MeteorologicalAerodromeObservation gml:id="uuid.b2cbd757-87c7-4476-b2c9-c93b5e31f273" cloudAndVisibilityOK="false">
+                    <iwxxm:airTemperature uom="Cel">21</iwxxm:airTemperature>
+                    <iwxxm:dewpointTemperature uom="Cel">20</iwxxm:dewpointTemperature>
+                    <iwxxm:qnh uom="hPa">1017.6</iwxxm:qnh>
+                    <iwxxm:surfaceWind>
+                        <iwxxm:AerodromeSurfaceWind variableWindDirection="false">
+                            <iwxxm:meanWindDirection uom="deg">0</iwxxm:meanWindDirection>
+                            <iwxxm:meanWindSpeed uom="[kn_i]">0</iwxxm:meanWindSpeed>
+                        </iwxxm:AerodromeSurfaceWind>
+                    </iwxxm:surfaceWind>
+                    <iwxxm:visibility>
+                        <iwxxm:AerodromeHorizontalVisibility>
+                            <iwxxm:prevailingVisibility uom="m">10000</iwxxm:prevailingVisibility>
+                            <iwxxm:prevailingVisibilityOperator>ABOVE</iwxxm:prevailingVisibilityOperator>
+                        </iwxxm:AerodromeHorizontalVisibility>
+                    </iwxxm:visibility>
+                    <iwxxm:cloud>
+                        <iwxxm:AerodromeCloud>
+                            <iwxxm:layer>
+                                <iwxxm:CloudLayer>
+                                    <iwxxm:amount xlink:href="http://codes.wmo.int/49-2/CloudAmountReportedAtAerodrome/SCT" />
+                                    <iwxxm:base uom="[ft_i]">2000</iwxxm:base>
+                                </iwxxm:CloudLayer>
+                            </iwxxm:layer>
+                        </iwxxm:AerodromeCloud>
+                    </iwxxm:cloud>
+                    <iwxxm:extension>
+                        <Addendum
+                            xmlns="http://www.weather.gov/iwxxm-us/3.0">
+                            <observingSystemType xlink:href="https://codes.nws.noaa.gov/FMH-1/ObservingSystemType/AO2" />
+                        </Addendum>
+                    </iwxxm:extension>
+                </iwxxm:MeteorologicalAerodromeObservation>
+            </iwxxm:observation>
+        </iwxxm:SPECI>
+    </meteorologicalInformation>
+    <meteorologicalInformation>
+        <iwxxm:SPECI
+            xmlns:aixm="http://www.aixm.aero/schema/5.1.1"
+            xmlns:iwxxm="http://icao.int/iwxxm/3.0"
+            xmlns:gml="http://www.opengis.net/gml/3.2"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://icao.int/iwxxm/3.0 https://schemas.wmo.int/iwxxm/3.0/iwxxm.xsd http://www.weather.gov/iwxxm-us/3.0 https://nws.weather.gov/schemas/iwxxm-us/3.0/metarSpeci.xsd" reportStatus="NORMAL" automatedStation="true" permissibleUsage="OPERATIONAL" translationCentreName="NCEP Central Operations" translationCentreDesignator="KWNO" translationTime="2025-07-28T05:22:04Z" translatedBulletinReceptionTime="2025-07-28T05:22:04Z" translatedBulletinID="SPUS21KWBC280522" gml:id="uuid.cb034399-67a4-495a-ab43-ff0b5443a448"
+            xmlns:iwxxm-us="http://www.weather.gov/iwxxm-us/3.0">
+            <iwxxm:issueTime>
+                <gml:TimeInstant gml:id="uuid.9b28509b-5534-4051-9d2f-cd29162156e6">
+                    <gml:timePosition>2025-07-28T05:19:00Z</gml:timePosition>
+                </gml:TimeInstant>
+            </iwxxm:issueTime>
+            <iwxxm:aerodrome>
+                <aixm:AirportHeliport gml:id="uuid.be0c51fd-32b3-4fa1-bc4a-d499237b9828">
+                    <aixm:timeSlice>
+                        <aixm:AirportHeliportTimeSlice gml:id="uuid.0f10c5f4-a26b-4032-bc9e-ec7c691f52a0">
+                            <gml:validTime />
+                            <aixm:interpretation>SNAPSHOT</aixm:interpretation>
+                            <aixm:designator>KPBG</aixm:designator>
+                            <aixm:name>PLATTSBURGH INTERNATIONAL AIRPORT</aixm:name>
+                            <aixm:locationIndicatorICAO>KPBG</aixm:locationIndicatorICAO>
+                            <aixm:ARP>
+                                <aixm:ElevatedPoint srsDimension="2" srsName="http://www.opengis.net/def/crs/EPSG/0/4326" axisLabels="Lat Long" gml:id="uuid.dbe6dea0-2009-4b4d-af5e-05fe411dc1e6">
+                                    <gml:pos>44.650 -73.467</gml:pos>
+                                </aixm:ElevatedPoint>
+                            </aixm:ARP>
+                        </aixm:AirportHeliportTimeSlice>
+                    </aixm:timeSlice>
+                </aixm:AirportHeliport>
+            </iwxxm:aerodrome>
+            <iwxxm:observationTime xlink:href="#uuid.9b28509b-5534-4051-9d2f-cd29162156e6" />
+            <iwxxm:observation>
+                <iwxxm:MeteorologicalAerodromeObservation gml:id="uuid.f30527fa-816a-4540-a5b2-d5dead4d9968" cloudAndVisibilityOK="false">
+                    <iwxxm:airTemperature uom="Cel">21.1</iwxxm:airTemperature>
+                    <iwxxm:dewpointTemperature uom="Cel">21.1</iwxxm:dewpointTemperature>
+                    <iwxxm:qnh uom="hPa">1013.5</iwxxm:qnh>
+                    <iwxxm:surfaceWind>
+                        <iwxxm:AerodromeSurfaceWind variableWindDirection="false">
+                            <iwxxm:meanWindDirection uom="deg">0</iwxxm:meanWindDirection>
+                            <iwxxm:meanWindSpeed uom="[kn_i]">0</iwxxm:meanWindSpeed>
+                        </iwxxm:AerodromeSurfaceWind>
+                    </iwxxm:surfaceWind>
+                    <iwxxm:visibility>
+                        <iwxxm:AerodromeHorizontalVisibility>
+                            <iwxxm:prevailingVisibility uom="m">2400</iwxxm:prevailingVisibility>
+                        </iwxxm:AerodromeHorizontalVisibility>
+                    </iwxxm:visibility>
+                    <iwxxm:presentWeather xlink:href="http://codes.wmo.int/306/4678/BR" />
+                    <iwxxm:cloud>
+                        <iwxxm:AerodromeCloud>
+                            <iwxxm:layer>
+                                <iwxxm:CloudLayer>
+                                    <iwxxm:amount xsi:nil="true" nilReason="http://codes.wmo.int/common/nil/notDetectedByAutoSystem" xlink:title="CLR" />
+                                    <iwxxm:base nilReason="http://codes.wmo.int/common/nil/notDetectedByAutoSystem" xsi:nil="true" uom="N/A" />
+                                </iwxxm:CloudLayer>
+                            </iwxxm:layer>
+                        </iwxxm:AerodromeCloud>
+                    </iwxxm:cloud>
+                    <iwxxm:extension>
+                        <Addendum
+                            xmlns="http://www.weather.gov/iwxxm-us/3.0">
+                            <observingSystemType xlink:href="https://codes.nws.noaa.gov/FMH-1/ObservingSystemType/AO2" />
+                        </Addendum>
+                    </iwxxm:extension>
+                </iwxxm:MeteorologicalAerodromeObservation>
+            </iwxxm:observation>
+        </iwxxm:SPECI>
+    </meteorologicalInformation>
+    <bulletinIdentifier>A_LPUS21KWBC280522_C_KWBC_20250728052204.xml</bulletinIdentifier>
+</MeteorologicalBulletin>

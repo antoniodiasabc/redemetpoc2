@@ -1,0 +1,70 @@
+# === Build output ===
+target/
+*.class
+*.jar
+*.so
+*.war
+
+# === Libs grandes (não versionar binários) ===
+libs/
+lib/
+grib2/
+BOOT-INF/
+META-INF/
+org/
+native/
+
+# === IDE ===
+.idea/
+*.iml
+.vscode/
+.project
+.classpath
+.settings/
+*.swp
+*.swo
+*~
+
+# === OS ===
+.DS_Store
+Thumbs.db
+*Zone.Identifier
+
+# === Logs ===
+*.log
+logs/
+
+# === Data/Runtime (gerado em runtime, não versionar) ===
+data/canal16_*.jpg
+data/realcada_*.png
+data/vis_*.png
+data/wind_cache_*.json
+data/grib2/
+data/convection_hsv_*.png
+data/convection_hsv_polygon.json
+data/hsv_metadata.json
+data/canal16_latest.jpg
+data/realcada_latest.png
+data/vis_latest.png
+frames/
+
+# === Backup files ===
+*.backup
+*.backup-paralel
+*.backup-cache
+*.bak
+*.backup.*
+
+# === Credentials (nunca commitar) ===
+decea_key
+*.pem
+*.key
+
+# === Misc ===
+app.log
+_archived_tests/
+*.geojson
+!src/main/resources/**/*.geojson
+*.png
+!src/main/resources/**/*.png
+.env

@@ -1,0 +1,4697 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 53
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [711, 108],
+          [721, 108],
+          [721, 119],
+          [711, 119],
+          [711, 108]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 292
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [87, 128],
+          [107, 128],
+          [107, 164],
+          [87, 164],
+          [87, 128]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 135
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [730, 139],
+          [751, 139],
+          [751, 158],
+          [730, 158],
+          [730, 139]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 52
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [26, 148],
+          [41, 148],
+          [41, 156],
+          [26, 156],
+          [26, 148]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 104
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [21, 149],
+          [38, 149],
+          [38, 161],
+          [21, 161],
+          [21, 149]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 234
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [687, 154],
+          [727, 154],
+          [727, 170],
+          [687, 170],
+          [687, 154]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 102
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [722, 154],
+          [733, 154],
+          [733, 176],
+          [722, 176],
+          [722, 154]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 120
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [677, 156],
+          [691, 156],
+          [691, 172],
+          [677, 172],
+          [677, 156]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 71
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [673, 163],
+          [691, 163],
+          [691, 175],
+          [673, 175],
+          [673, 163]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 158
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [689, 164],
+          [716, 164],
+          [716, 177],
+          [689, 177],
+          [689, 164]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 56
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [5, 192],
+          [19, 192],
+          [19, 202],
+          [5, 202],
+          [5, 192]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 82
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [493, 194],
+          [511, 194],
+          [511, 204],
+          [493, 204],
+          [493, 194]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 187
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [266, 235],
+          [297, 235],
+          [297, 259],
+          [266, 259],
+          [266, 235]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 97
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [546, 314],
+          [557, 314],
+          [557, 326],
+          [546, 326],
+          [546, 314]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 94
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [259, 319],
+          [275, 319],
+          [275, 335],
+          [259, 335],
+          [259, 319]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 705
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [533, 327],
+          [567, 327],
+          [567, 360],
+          [533, 360],
+          [533, 327]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 59
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [507, 330],
+          [519, 330],
+          [519, 344],
+          [507, 344],
+          [507, 330]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 132
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [497, 331],
+          [517, 331],
+          [517, 351],
+          [497, 351],
+          [497, 331]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 78
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [511, 338],
+          [526, 338],
+          [526, 355],
+          [511, 355],
+          [511, 338]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 114
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [568, 343],
+          [580, 343],
+          [580, 362],
+          [568, 362],
+          [568, 343]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 54
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [536, 345],
+          [546, 345],
+          [546, 359],
+          [536, 359],
+          [536, 345]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 127
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [509, 348],
+          [529, 348],
+          [529, 360],
+          [509, 360],
+          [509, 348]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 1454
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [270, 359],
+          [353, 359],
+          [353, 417],
+          [270, 417],
+          [270, 359]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 154
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [583, 367],
+          [598, 367],
+          [598, 385],
+          [583, 385],
+          [583, 367]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 59
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [571, 376],
+          [580, 376],
+          [580, 388],
+          [571, 388],
+          [571, 376]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 123
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [562, 386],
+          [585, 386],
+          [585, 407],
+          [562, 407],
+          [562, 386]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 73
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [611, 387],
+          [636, 387],
+          [636, 397],
+          [611, 397],
+          [611, 387]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 175
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [515, 392],
+          [550, 392],
+          [550, 407],
+          [515, 407],
+          [515, 392]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 189
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [572, 392],
+          [598, 392],
+          [598, 416],
+          [572, 416],
+          [572, 392]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 67
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [342, 397],
+          [351, 397],
+          [351, 410],
+          [342, 410],
+          [342, 397]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 260
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [561, 397],
+          [583, 397],
+          [583, 429],
+          [561, 429],
+          [561, 397]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 93
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [363, 399],
+          [378, 399],
+          [378, 418],
+          [363, 418],
+          [363, 399]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 95
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [384, 403],
+          [396, 403],
+          [396, 415],
+          [384, 415],
+          [384, 403]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 613
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [351, 406],
+          [395, 406],
+          [395, 450],
+          [351, 450],
+          [351, 406]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 66
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [399, 414],
+          [414, 414],
+          [414, 424],
+          [399, 424],
+          [399, 414]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 200
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [405, 420],
+          [442, 420],
+          [442, 440],
+          [405, 440],
+          [405, 420]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 56
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [399, 422],
+          [414, 422],
+          [414, 431],
+          [399, 431],
+          [399, 422]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 148
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [544, 424],
+          [568, 424],
+          [568, 436],
+          [544, 436],
+          [544, 424]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 122
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [564, 430],
+          [579, 430],
+          [579, 443],
+          [564, 443],
+          [564, 430]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 787
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [514, 433],
+          [562, 433],
+          [562, 467],
+          [514, 467],
+          [514, 433]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 79
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [593, 435],
+          [610, 435],
+          [610, 450],
+          [593, 450],
+          [593, 435]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 125
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [352, 437],
+          [366, 437],
+          [366, 468],
+          [352, 468],
+          [352, 437]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 396
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [360, 439],
+          [391, 439],
+          [391, 470],
+          [360, 470],
+          [360, 439]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 235
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [551, 444],
+          [572, 444],
+          [572, 469],
+          [551, 469],
+          [551, 444]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 434
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [560, 445],
+          [604, 445],
+          [604, 472],
+          [560, 472],
+          [560, 445]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 101
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [651, 445],
+          [662, 445],
+          [662, 464],
+          [651, 464],
+          [651, 445]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 124
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [485, 449],
+          [506, 449],
+          [506, 465],
+          [485, 465],
+          [485, 449]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 75
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [636, 450],
+          [653, 450],
+          [653, 463],
+          [636, 463],
+          [636, 450]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 510
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [577, 454],
+          [616, 454],
+          [616, 482],
+          [577, 482],
+          [577, 454]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 89
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [368, 463],
+          [382, 463],
+          [382, 477],
+          [368, 477],
+          [368, 463]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 62
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [526, 463],
+          [539, 463],
+          [539, 476],
+          [526, 476],
+          [526, 463]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 56
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [614, 466],
+          [623, 466],
+          [623, 477],
+          [614, 477],
+          [614, 466]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 516
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [364, 468],
+          [402, 468],
+          [402, 511],
+          [364, 511],
+          [364, 468]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 51
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [573, 468],
+          [584, 468],
+          [584, 477],
+          [573, 477],
+          [573, 468]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 224
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [700, 473],
+          [729, 473],
+          [729, 491],
+          [700, 491],
+          [700, 473]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 84
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [555, 479],
+          [578, 479],
+          [578, 491],
+          [555, 491],
+          [555, 479]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 54
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [579, 483],
+          [594, 483],
+          [594, 491],
+          [579, 491],
+          [579, 483]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 132
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [351, 488],
+          [366, 488],
+          [366, 511],
+          [351, 511],
+          [351, 488]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 132
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [632, 494],
+          [659, 494],
+          [659, 508],
+          [632, 508],
+          [632, 494]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 68
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [576, 496],
+          [591, 496],
+          [591, 511],
+          [576, 511],
+          [576, 496]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 160
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [698, 506],
+          [724, 506],
+          [724, 520],
+          [698, 520],
+          [698, 506]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 89
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [368, 511],
+          [381, 511],
+          [381, 531],
+          [368, 531],
+          [368, 511]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 80
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [350, 517],
+          [363, 517],
+          [363, 533],
+          [350, 533],
+          [350, 517]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 85
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [357, 524],
+          [369, 524],
+          [369, 540],
+          [357, 540],
+          [357, 524]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 104
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [351, 535],
+          [361, 535],
+          [361, 557],
+          [351, 557],
+          [351, 535]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 89
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [346, 541],
+          [354, 541],
+          [354, 565],
+          [346, 565],
+          [346, 541]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 484
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [692, 545],
+          [749, 545],
+          [749, 575],
+          [692, 575],
+          [692, 545]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 99
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [161, 550],
+          [181, 550],
+          [181, 566],
+          [161, 566],
+          [161, 550]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 67
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [350, 550],
+          [357, 550],
+          [357, 572],
+          [350, 572],
+          [350, 550]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 61
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [100, 553],
+          [117, 553],
+          [117, 560],
+          [100, 560],
+          [100, 553]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 175
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [728, 553],
+          [762, 553],
+          [762, 569],
+          [728, 569],
+          [728, 553]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 86
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [94, 555],
+          [110, 555],
+          [110, 566],
+          [94, 566],
+          [94, 555]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 76
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [124, 558],
+          [144, 558],
+          [144, 568],
+          [124, 568],
+          [124, 558]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 60
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [673, 558],
+          [685, 558],
+          [685, 567],
+          [673, 567],
+          [673, 558]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 95
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [106, 559],
+          [125, 559],
+          [125, 568],
+          [106, 568],
+          [106, 559]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 108
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [745, 560],
+          [767, 560],
+          [767, 575],
+          [745, 575],
+          [745, 560]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 75
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [465, 564],
+          [483, 564],
+          [483, 573],
+          [465, 573],
+          [465, 564]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 108
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [689, 570],
+          [706, 570],
+          [706, 582],
+          [689, 582],
+          [689, 570]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 165
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [760, 571],
+          [780, 571],
+          [780, 586],
+          [760, 586],
+          [760, 571]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 60
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [132, 577],
+          [144, 577],
+          [144, 591],
+          [132, 591],
+          [132, 577]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 60
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [445, 581],
+          [456, 581],
+          [456, 593],
+          [445, 593],
+          [445, 581]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 551
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [649, 581],
+          [692, 581],
+          [692, 612],
+          [649, 612],
+          [649, 581]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 60
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [185, 589],
+          [195, 589],
+          [195, 604],
+          [185, 604],
+          [185, 589]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 89
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [512, 589],
+          [534, 589],
+          [534, 602],
+          [512, 602],
+          [512, 589]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 53
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [142, 594],
+          [154, 594],
+          [154, 604],
+          [142, 604],
+          [142, 594]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 55
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [182, 594],
+          [194, 594],
+          [194, 614],
+          [182, 614],
+          [182, 594]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 54
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [479, 596],
+          [499, 596],
+          [499, 600],
+          [479, 600],
+          [479, 596]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 127
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [443, 602],
+          [468, 602],
+          [468, 613],
+          [443, 613],
+          [443, 602]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 110
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [92, 603],
+          [102, 603],
+          [102, 629],
+          [92, 629],
+          [92, 603]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 57
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [138, 605],
+          [154, 605],
+          [154, 612],
+          [138, 612],
+          [138, 605]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 60
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [667, 608],
+          [691, 608],
+          [691, 616],
+          [667, 616],
+          [667, 608]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 51
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [174, 611],
+          [189, 611],
+          [189, 620],
+          [174, 620],
+          [174, 611]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 58
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [658, 613],
+          [671, 613],
+          [671, 622],
+          [658, 622],
+          [658, 613]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 78
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [141, 614],
+          [156, 614],
+          [156, 627],
+          [141, 627],
+          [141, 614]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 363
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [340, 615],
+          [377, 615],
+          [377, 644],
+          [340, 644],
+          [340, 615]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 51
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [251, 616],
+          [263, 616],
+          [263, 626],
+          [251, 626],
+          [251, 616]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 53
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [411, 618],
+          [420, 618],
+          [420, 628],
+          [411, 628],
+          [411, 618]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 927
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [593, 619],
+          [655, 619],
+          [655, 667],
+          [593, 667],
+          [593, 619]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 63
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [422, 622],
+          [435, 622],
+          [435, 634],
+          [422, 634],
+          [422, 622]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 73
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [156, 625],
+          [172, 625],
+          [172, 634],
+          [156, 634],
+          [156, 625]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 82
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [141, 628],
+          [164, 628],
+          [164, 638],
+          [141, 638],
+          [141, 628]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 295
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [628, 628],
+          [667, 628],
+          [667, 644],
+          [628, 644],
+          [628, 628]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 54
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [133, 632],
+          [139, 632],
+          [139, 653],
+          [133, 653],
+          [133, 632]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 1310
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [236, 633],
+          [301, 633],
+          [301, 683],
+          [236, 683],
+          [236, 633]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 139
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [332, 633],
+          [345, 633],
+          [345, 658],
+          [332, 658],
+          [332, 633]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 55
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [186, 635],
+          [195, 635],
+          [195, 648],
+          [186, 648],
+          [186, 635]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 438
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [142, 645],
+          [184, 645],
+          [184, 668],
+          [142, 668],
+          [142, 645]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 382
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [628, 646],
+          [659, 646],
+          [659, 678],
+          [628, 678],
+          [628, 646]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 1044
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [646, 646],
+          [691, 646],
+          [691, 693],
+          [646, 693],
+          [646, 646]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 51
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [356, 651],
+          [368, 651],
+          [368, 660],
+          [356, 660],
+          [356, 651]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 103
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [188, 653],
+          [204, 653],
+          [204, 664],
+          [188, 664],
+          [188, 653]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 500
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [366, 653],
+          [432, 653],
+          [432, 687],
+          [366, 687],
+          [366, 653]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 2337
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [646, 655],
+          [736, 655],
+          [736, 734],
+          [646, 734],
+          [646, 655]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 2041
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [323, 656],
+          [389, 656],
+          [389, 727],
+          [323, 727],
+          [323, 656]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 63
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [660, 659],
+          [677, 659],
+          [677, 671],
+          [660, 671],
+          [660, 659]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 76
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [404, 662],
+          [424, 662],
+          [424, 672],
+          [404, 672],
+          [404, 662]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 127
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [146, 666],
+          [170, 666],
+          [170, 682],
+          [146, 682],
+          [146, 666]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 332
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [300, 666],
+          [326, 666],
+          [326, 693],
+          [300, 693],
+          [300, 666]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 83
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [182, 669],
+          [200, 669],
+          [200, 680],
+          [182, 680],
+          [182, 669]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 74
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [225, 670],
+          [241, 670],
+          [241, 679],
+          [225, 679],
+          [225, 670]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 79
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [148, 671],
+          [169, 671],
+          [169, 687],
+          [148, 687],
+          [148, 671]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 209
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [213, 672],
+          [235, 672],
+          [235, 695],
+          [213, 695],
+          [213, 672]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 77
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [403, 672],
+          [426, 672],
+          [426, 686],
+          [403, 686],
+          [403, 672]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 525
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [193, 677],
+          [229, 677],
+          [229, 721],
+          [193, 721],
+          [193, 677]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 77
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [545, 677],
+          [562, 677],
+          [562, 687],
+          [545, 687],
+          [545, 677]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 60
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [718, 677],
+          [732, 677],
+          [732, 687],
+          [718, 687],
+          [718, 677]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 54
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [606, 678],
+          [616, 678],
+          [616, 686],
+          [606, 686],
+          [606, 678]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 154
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [232, 680],
+          [259, 680],
+          [259, 697],
+          [232, 697],
+          [232, 680]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 57
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [842, 683],
+          [855, 683],
+          [855, 693],
+          [842, 693],
+          [842, 683]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 75
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [825, 684],
+          [841, 684],
+          [841, 692],
+          [825, 692],
+          [825, 684]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 63
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [116, 685],
+          [133, 685],
+          [133, 695],
+          [116, 695],
+          [116, 685]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 143
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [311, 686],
+          [323, 686],
+          [323, 716],
+          [311, 716],
+          [311, 686]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 51
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [164, 688],
+          [179, 688],
+          [179, 695],
+          [164, 695],
+          [164, 688]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 61
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [584, 688],
+          [594, 688],
+          [594, 700],
+          [584, 700],
+          [584, 688]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 142
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [807, 688],
+          [831, 688],
+          [831, 704],
+          [807, 704],
+          [807, 688]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 84
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [669, 689],
+          [689, 689],
+          [689, 701],
+          [669, 701],
+          [669, 689]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 375
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [108, 690],
+          [137, 690],
+          [137, 726],
+          [108, 726],
+          [108, 690]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 2800
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [152, 694],
+          [293, 694],
+          [293, 780],
+          [152, 780],
+          [152, 694]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 734
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [591, 694],
+          [619, 694],
+          [619, 749],
+          [591, 749],
+          [591, 694]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 286
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [465, 696],
+          [521, 696],
+          [521, 708],
+          [465, 708],
+          [465, 696]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 51
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [663, 696],
+          [680, 696],
+          [680, 704],
+          [663, 704],
+          [663, 696]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 164
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [431, 699],
+          [474, 699],
+          [474, 713],
+          [431, 713],
+          [431, 699]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 168
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [321, 700],
+          [343, 700],
+          [343, 722],
+          [321, 722],
+          [321, 700]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 63
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [792, 700],
+          [808, 700],
+          [808, 707],
+          [792, 707],
+          [792, 700]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 210
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [833, 700],
+          [856, 700],
+          [856, 717],
+          [833, 717],
+          [833, 700]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 291
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [163, 701],
+          [202, 701],
+          [202, 728],
+          [163, 728],
+          [163, 701]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 122
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [140, 702],
+          [158, 702],
+          [158, 722],
+          [140, 722],
+          [140, 702]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 76
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [742, 702],
+          [760, 702],
+          [760, 717],
+          [742, 717],
+          [742, 702]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 814
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [231, 704],
+          [293, 704],
+          [293, 745],
+          [231, 745],
+          [231, 704]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 70
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [812, 704],
+          [830, 704],
+          [830, 710],
+          [812, 710],
+          [812, 704]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 69
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [628, 705],
+          [646, 705],
+          [646, 715],
+          [628, 715],
+          [628, 705]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 56
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [763, 706],
+          [775, 706],
+          [775, 715],
+          [763, 715],
+          [763, 706]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 111
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [791, 707],
+          [814, 707],
+          [814, 717],
+          [791, 717],
+          [791, 707]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 67
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [621, 709],
+          [640, 709],
+          [640, 720],
+          [621, 720],
+          [621, 709]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 60
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [470, 712],
+          [499, 712],
+          [499, 720],
+          [470, 720],
+          [470, 712]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 160
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [759, 713],
+          [789, 713],
+          [789, 736],
+          [759, 736],
+          [759, 713]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 149
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [742, 715],
+          [762, 715],
+          [762, 730],
+          [742, 730],
+          [742, 715]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 113
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [844, 715],
+          [856, 715],
+          [856, 734],
+          [844, 734],
+          [844, 715]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 406
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [304, 716],
+          [329, 716],
+          [329, 759],
+          [304, 759],
+          [304, 716]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 69
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [786, 717],
+          [800, 717],
+          [800, 730],
+          [786, 730],
+          [786, 717]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 5063
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [716, 717],
+          [856, 717],
+          [856, 817],
+          [716, 817],
+          [716, 717]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 136
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [198, 718],
+          [226, 718],
+          [226, 732],
+          [198, 732],
+          [198, 718]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 83
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [176, 721],
+          [190, 721],
+          [190, 735],
+          [176, 735],
+          [176, 721]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 170
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [180, 721],
+          [215, 721],
+          [215, 738],
+          [180, 738],
+          [180, 721]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 73
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [198, 722],
+          [218, 722],
+          [218, 736],
+          [198, 736],
+          [198, 722]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 239
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [120, 725],
+          [157, 725],
+          [157, 746],
+          [120, 746],
+          [120, 725]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 377
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [144, 725],
+          [197, 725],
+          [197, 748],
+          [144, 748],
+          [144, 725]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 96
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [591, 725],
+          [604, 725],
+          [604, 743],
+          [591, 743],
+          [591, 725]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 94
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [770, 728],
+          [787, 728],
+          [787, 751],
+          [770, 751],
+          [770, 728]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 409
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [221, 729],
+          [259, 729],
+          [259, 755],
+          [221, 755],
+          [221, 729]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 89
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [652, 731],
+          [674, 731],
+          [674, 744],
+          [652, 744],
+          [652, 731]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 193
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [678, 733],
+          [704, 733],
+          [704, 748],
+          [678, 748],
+          [678, 733]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 157
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [698, 734],
+          [742, 734],
+          [742, 755],
+          [698, 755],
+          [698, 734]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 58
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [837, 734],
+          [848, 734],
+          [848, 739],
+          [837, 739],
+          [837, 734]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 529
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [551, 736],
+          [604, 736],
+          [604, 763],
+          [551, 763],
+          [551, 736]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 68
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [34, 737],
+          [49, 737],
+          [49, 749],
+          [34, 749],
+          [34, 737]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 64
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [452, 738],
+          [462, 738],
+          [462, 753],
+          [452, 753],
+          [452, 738]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 71
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [644, 738],
+          [667, 738],
+          [667, 746],
+          [644, 746],
+          [644, 738]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 56
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [141, 739],
+          [159, 739],
+          [159, 751],
+          [141, 751],
+          [141, 739]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 68
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [168, 739],
+          [180, 739],
+          [180, 751],
+          [168, 751],
+          [168, 739]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 66
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [195, 740],
+          [212, 740],
+          [212, 749],
+          [195, 749],
+          [195, 740]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 271
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [650, 741],
+          [695, 741],
+          [695, 766],
+          [650, 766],
+          [650, 741]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 61
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [119, 742],
+          [129, 742],
+          [129, 757],
+          [119, 757],
+          [119, 742]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 159
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [461, 742],
+          [491, 742],
+          [491, 754],
+          [461, 754],
+          [461, 742]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 293
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [461, 745],
+          [500, 745],
+          [500, 769],
+          [461, 769],
+          [461, 745]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 59
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [266, 746],
+          [277, 746],
+          [277, 755],
+          [266, 755],
+          [266, 746]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 104
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [610, 746],
+          [622, 746],
+          [622, 759],
+          [610, 759],
+          [610, 746]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 143
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [112, 747],
+          [124, 747],
+          [124, 768],
+          [112, 768],
+          [112, 747]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 113
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [293, 748],
+          [310, 748],
+          [310, 764],
+          [293, 764],
+          [293, 748]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 247
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [152, 749],
+          [206, 749],
+          [206, 761],
+          [152, 761],
+          [152, 749]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 301
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [317, 749],
+          [350, 749],
+          [350, 769],
+          [317, 769],
+          [317, 749]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 1027
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [699, 749],
+          [748, 749],
+          [748, 811],
+          [699, 811],
+          [699, 749]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 58
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [208, 752],
+          [228, 752],
+          [228, 762],
+          [208, 762],
+          [208, 752]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 127
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [123, 753],
+          [141, 753],
+          [141, 774],
+          [123, 774],
+          [123, 753]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 84
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [602, 754],
+          [615, 754],
+          [615, 767],
+          [602, 767],
+          [602, 754]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 80
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [796, 754],
+          [810, 754],
+          [810, 771],
+          [796, 771],
+          [796, 754]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 889
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [171, 755],
+          [271, 755],
+          [271, 786],
+          [171, 786],
+          [171, 755]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 51
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [740, 756],
+          [755, 756],
+          [755, 768],
+          [740, 768],
+          [740, 756]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 60
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [747, 758],
+          [764, 758],
+          [764, 770],
+          [747, 770],
+          [747, 758]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 362
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [141, 763],
+          [227, 763],
+          [227, 774],
+          [141, 774],
+          [141, 763]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 115
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [678, 764],
+          [698, 764],
+          [698, 777],
+          [678, 777],
+          [678, 764]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 61
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [390, 765],
+          [399, 765],
+          [399, 776],
+          [390, 776],
+          [390, 765]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 2321
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [754, 765],
+          [856, 765],
+          [856, 831],
+          [754, 831],
+          [754, 765]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 64
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [319, 767],
+          [332, 767],
+          [332, 779],
+          [319, 779],
+          [319, 767]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 55
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [50, 768],
+          [62, 768],
+          [62, 778],
+          [50, 778],
+          [50, 768]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 63
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [298, 768],
+          [314, 768],
+          [314, 777],
+          [298, 777],
+          [298, 768]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 336
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [522, 768],
+          [567, 768],
+          [567, 791],
+          [522, 791],
+          [522, 768]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 159
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [746, 773],
+          [775, 773],
+          [775, 786],
+          [746, 786],
+          [746, 773]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 77
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [759, 774],
+          [781, 774],
+          [781, 788],
+          [759, 788],
+          [759, 774]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 57
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [427, 775],
+          [440, 775],
+          [440, 791],
+          [427, 791],
+          [427, 775]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 92
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [397, 776],
+          [414, 776],
+          [414, 792],
+          [397, 792],
+          [397, 776]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 82
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [556, 777],
+          [571, 777],
+          [571, 792],
+          [556, 792],
+          [556, 777]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 78
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [495, 781],
+          [511, 781],
+          [511, 794],
+          [495, 794],
+          [495, 781]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 51
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [441, 783],
+          [456, 783],
+          [456, 793],
+          [441, 793],
+          [441, 783]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 469
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [502, 783],
+          [549, 783],
+          [549, 815],
+          [502, 815],
+          [502, 783]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 73
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [321, 784],
+          [343, 784],
+          [343, 789],
+          [321, 789],
+          [321, 784]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 757
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [734, 784],
+          [784, 784],
+          [784, 815],
+          [734, 815],
+          [734, 784]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 164
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [538, 787],
+          [560, 787],
+          [560, 806],
+          [538, 806],
+          [538, 787]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 75
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [687, 789],
+          [704, 789],
+          [704, 797],
+          [687, 797],
+          [687, 789]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 86
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [317, 790],
+          [333, 790],
+          [333, 799],
+          [317, 799],
+          [317, 790]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 56
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [454, 790],
+          [466, 790],
+          [466, 803],
+          [454, 803],
+          [454, 790]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 59
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [512, 792],
+          [528, 792],
+          [528, 801],
+          [512, 801],
+          [512, 792]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 234
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [717, 792],
+          [744, 792],
+          [744, 812],
+          [717, 812],
+          [717, 792]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 236
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [405, 794],
+          [436, 794],
+          [436, 817],
+          [405, 817],
+          [405, 794]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 227
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [426, 794],
+          [458, 794],
+          [458, 817],
+          [426, 817],
+          [426, 794]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 52
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [436, 794],
+          [451, 794],
+          [451, 804],
+          [436, 804],
+          [436, 794]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 1935
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [416, 795],
+          [552, 795],
+          [552, 858],
+          [416, 858],
+          [416, 795]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 60
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [189, 801],
+          [210, 801],
+          [210, 808],
+          [189, 808],
+          [189, 801]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 90
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [0, 802],
+          [13, 802],
+          [13, 813],
+          [0, 813],
+          [0, 802]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 71
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [115, 805],
+          [133, 805],
+          [133, 813],
+          [115, 813],
+          [115, 805]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 2075
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [61, 806],
+          [203, 806],
+          [203, 858],
+          [61, 858],
+          [61, 806]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 374
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [44, 808],
+          [87, 808],
+          [87, 844],
+          [44, 844],
+          [44, 808]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 177
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [525, 811],
+          [548, 811],
+          [548, 829],
+          [525, 829],
+          [525, 811]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 55
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [449, 815],
+          [463, 815],
+          [463, 824],
+          [449, 824],
+          [449, 815]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 82
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [247, 816],
+          [269, 816],
+          [269, 827],
+          [247, 827],
+          [247, 816]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 91
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [824, 817],
+          [854, 817],
+          [854, 832],
+          [824, 832],
+          [824, 817]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 72
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [179, 818],
+          [205, 818],
+          [205, 824],
+          [179, 824],
+          [179, 818]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 62
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [426, 819],
+          [440, 819],
+          [440, 829],
+          [426, 829],
+          [426, 819]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 96
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [535, 824],
+          [562, 824],
+          [562, 836],
+          [535, 836],
+          [535, 824]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 181
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [560, 824],
+          [602, 824],
+          [602, 840],
+          [560, 840],
+          [560, 824]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 1067
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [789, 824],
+          [856, 824],
+          [856, 858],
+          [789, 858],
+          [789, 824]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 59
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [546, 825],
+          [564, 825],
+          [564, 832],
+          [546, 832],
+          [546, 825]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 111
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [625, 825],
+          [662, 825],
+          [662, 834],
+          [625, 834],
+          [625, 825]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 57
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [797, 825],
+          [815, 825],
+          [815, 831],
+          [797, 831],
+          [797, 825]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 79
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [381, 826],
+          [403, 826],
+          [403, 833],
+          [381, 833],
+          [381, 826]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 116
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [212, 827],
+          [245, 827],
+          [245, 836],
+          [212, 836],
+          [212, 827]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 879
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [582, 828],
+          [673, 828],
+          [673, 858],
+          [582, 858],
+          [582, 828]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 1024
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [638, 828],
+          [712, 828],
+          [712, 858],
+          [638, 858],
+          [638, 828]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 63
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [420, 829],
+          [439, 829],
+          [439, 840],
+          [420, 840],
+          [420, 829]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 136
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [575, 829],
+          [597, 829],
+          [597, 847],
+          [575, 847],
+          [575, 829]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 124
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [204, 830],
+          [228, 830],
+          [228, 844],
+          [204, 844],
+          [204, 830]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 365
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [587, 830],
+          [645, 830],
+          [645, 843],
+          [587, 843],
+          [587, 830]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 63
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [795, 832],
+          [813, 832],
+          [813, 837],
+          [795, 837],
+          [795, 832]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 61
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [6, 833],
+          [29, 833],
+          [29, 839],
+          [6, 839],
+          [6, 833]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 114
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [233, 833],
+          [260, 833],
+          [260, 845],
+          [233, 845],
+          [233, 833]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 51
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [523, 833],
+          [546, 833],
+          [546, 842],
+          [523, 842],
+          [523, 833]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 67
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [526, 833],
+          [551, 833],
+          [551, 840],
+          [526, 840],
+          [526, 833]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 190
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [797, 834],
+          [836, 834],
+          [836, 856],
+          [797, 856],
+          [797, 834]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 1047
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [160, 835],
+          [301, 835],
+          [301, 858],
+          [160, 858],
+          [160, 835]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 146
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [460, 836],
+          [488, 836],
+          [488, 847],
+          [460, 847],
+          [460, 836]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 339
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [0, 837],
+          [31, 837],
+          [31, 855],
+          [0, 855],
+          [0, 837]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 564
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [519, 837],
+          [581, 837],
+          [581, 858],
+          [519, 858],
+          [519, 837]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 468
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [123, 838],
+          [187, 838],
+          [187, 858],
+          [123, 858],
+          [123, 838]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 69
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [563, 841],
+          [579, 841],
+          [579, 846],
+          [563, 846],
+          [563, 841]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 167
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [48, 842],
+          [68, 842],
+          [68, 858],
+          [48, 858],
+          [48, 842]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "moderada",
+        "pixelCount": 96
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [577, 843],
+          [598, 843],
+          [598, 852],
+          [577, 852],
+          [577, 843]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 158
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [603, 843],
+          [639, 843],
+          [639, 856],
+          [603, 856],
+          [603, 843]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 65
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [41, 844],
+          [56, 844],
+          [56, 858],
+          [41, 858],
+          [41, 844]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 115
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [817, 844],
+          [843, 844],
+          [843, 856],
+          [817, 856],
+          [817, 844]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 161
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [666, 845],
+          [703, 845],
+          [703, 858],
+          [666, 858],
+          [666, 845]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 100
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [213, 846],
+          [242, 846],
+          [242, 851],
+          [213, 851],
+          [213, 846]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 204
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [357, 850],
+          [414, 850],
+          [414, 858],
+          [357, 858],
+          [357, 850]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 105
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [693, 851],
+          [724, 851],
+          [724, 858],
+          [693, 858],
+          [693, 851]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 240
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [282, 852],
+          [349, 852],
+          [349, 858],
+          [282, 858],
+          [282, 852]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "severa",
+        "pixelCount": 51
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [564, 852],
+          [586, 852],
+          [586, 855],
+          [564, 855],
+          [564, 852]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "severity": "forte",
+        "pixelCount": 162
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [382, 854],
+          [432, 854],
+          [432, 858],
+          [382, 858],
+          [382, 854]
+        ]]
+      }
+    }
+  ]
+}

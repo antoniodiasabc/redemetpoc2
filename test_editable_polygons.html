@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teste Polígonos Editáveis</title>
+</head>
+<body>
+    <h1>Teste Automatizado - Polígonos Editáveis</h1>
+    <div id="results"></div>
+    
+    <script>
+        async function testEditablePolygons() {
+            const results = document.getElementById('results');
+            
+            try {
+                // 1. Testar se HSV Otimizado existe
+                results.innerHTML += '<p>🔍 Testando HSV Otimizado...</p>';
+                const hsvResponse = await fetch('http://localhost:8082/data/hsv_optimized.json');
+                
+                if (!hsvResponse.ok) {
+                    throw new Error('HSV Otimizado não encontrado');
+                }
+                
+                const hsvData = await hsvResponse.json();
+                results.innerHTML += `<p>✅ HSV Otimizado carregado: ${hsvData.features.length} features</p>`;
+                
+                // 2. Testar conversão para polígonos editáveis
+                results.innerHTML += '<p>🔄 Testando conversão para editáveis...</p>';
+                
+                const editablePolygons = hsvData.features.map(feature => ({
+                    coordinates: feature.geometry.coordinates[0],
+                    severity: feature.properties.severity.toLowerCase(),
+                    area: feature.properties.pixels * 0.1,
+                    pixelCount: feature.properties.pixels
+                }));
+                
+                results.innerHTML += `<p>✅ Polígonos convertidos: ${editablePolygons.length}</p>`;
+                
+                // 3. Testar estrutura dos polígonos
+                const firstPolygon = editablePolygons[0];
+                if (!firstPolygon.coordinates || !Array.isArray(firstPolygon.coordinates)) {
+                    throw new Error('Estrutura de coordenadas inválida');
+                }
+                
+                results.innerHTML += `<p>✅ Estrutura válida: ${firstPolygon.coordinates.length} pontos</p>`;
+                results.innerHTML += `<p>✅ Severidade: ${firstPolygon.severity}</p>`;
+                
+                // 4. Testar se aplicação está rodando
+                const appResponse = await fetch('http://localhost:8082/');
+                if (!appResponse.ok) {
+                    throw new Error('Aplicação não está rodando');
+                }
+                
+                results.innerHTML += '<p>✅ Aplicação rodando</p>';
+                results.innerHTML += '<p><strong>🎯 TESTE PASSOU! Polígonos podem ser editáveis.</strong></p>';
+                
+            } catch (error) {
+                results.innerHTML += `<p>❌ ERRO: ${error.message}</p>`;
+            }
+        }
+        
+        // Executar teste
+        testEditablePolygons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+# Multi-stage build para otimizar tamanho da imagem
+FROM eclipse-temurin:17-jdk-alpine as builder
+
+# Instalar Maven
+RUN apk add --no-cache maven
+
+# Copiar arquivos do projeto
+WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+COPY libs ./libs
+
+# Build da aplicação
+RUN mvn clean package -DskipTests -Dmaven.test.skip=true
+
+# Imagem final otimizada
+FROM eclipse-temurin:17-jre-alpine
+
+# Instalar dependências necessárias para OpenCV
+RUN apk add --no-cache \
+    opencv-dev \
+    python3 \
+    py3-pip \
+    curl
+
+# Criar usuário não-root
+RUN addgroup -S spring && adduser -S spring -G spring
+
+# Diretórios da aplicação
+WORKDIR /app
+RUN mkdir -p /app/data /app/logs && \
+    chown -R spring:spring /app
+
+# Copiar JAR da aplicação
+COPY --from=builder /app/target/*.jar app.jar
+RUN chown spring:spring app.jar
+
+# Configurar usuário
+USER spring
+
+# Variáveis de ambiente
+ENV JAVA_OPTS="-Xmx1g -Xms512m -XX:+UseG1GC -XX:+UseContainerSupport"
+ENV SPRING_PROFILES_ACTIVE=production
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost:8082/actuator/health || exit 1
+
+# Expor porta
+EXPOSE 8082
+
+# Comando de inicialização
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]

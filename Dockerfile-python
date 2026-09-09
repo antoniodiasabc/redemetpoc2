@@ -1,0 +1,25 @@
+FROM python:3.9-alpine
+
+# Instalar dependências do sistema
+RUN apk add --no-cache openssh-client curl
+
+# Criar diretório da aplicação
+WORKDIR /app
+
+# Copiar arquivos
+COPY sftp_monitor_complete.py .
+COPY decea_key /root/.ssh/decea_key
+
+# Configurar permissões da chave SSH
+RUN mkdir -p /root/.ssh && \
+    chmod 700 /root/.ssh && \
+    chmod 600 /root/.ssh/decea_key
+
+# Instalar bibliotecas Python
+RUN pip install --no-cache-dir paramiko requests
+
+# Criar diretório para downloads
+RUN mkdir -p downloads
+
+# Comando com saída não bufferizada
+CMD ["python", "-u", "sftp_monitor_complete.py"]

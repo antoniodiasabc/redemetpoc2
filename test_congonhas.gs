@@ -1,0 +1,7 @@
+'open gfs_analysis.ctl'
+'set lat -23.6'
+'set lon -46.7'
+'set lev 250'
+'d ugrd250'
+'d vgrd250'
+'quit'
