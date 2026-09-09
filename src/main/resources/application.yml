@@ -60,11 +60,11 @@ spring:
 app:
   redemet:
     base-url: https://opmet.decea.mil.br/redemet/consulta_redemet
-    username: ${REDEMET_USERNAME:testeicaolima}
-    password: ${REDEMET_PASSWORD:Mudar12345@}
+    username: ${REDEMET_USERNAME}
+    password: ${REDEMET_PASSWORD}
   opmet:
     username: ${OPMET_USERNAME:iwxxm2}
-    password: ${OPMET_PASSWORD:Mudar123@}
+    password: ${OPMET_PASSWORD}
     timeout: 30s
     
   cache:
