@@ -58,6 +58,7 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - CESIUM_TOKEN=${CESIUM_TOKEN}
       - SIGWX_PATH=/sigwx
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
       - CLEANUP_RETENTION_DAYS=${CLEANUP_RETENTION_DAYS}
     volumes:
       - shared-data:/app/data
