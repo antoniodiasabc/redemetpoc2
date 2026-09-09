@@ -69,3 +69,4 @@ _archived_tests/
 *.png
 !src/main/resources/**/*.png
 .env
+nginx.conf/certs/
