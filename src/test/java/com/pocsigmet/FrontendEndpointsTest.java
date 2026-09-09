@@ -30,7 +30,7 @@ public class FrontendEndpointsTest {
     static void login() throws Exception {
         // 1. GET /login para pegar o CSRF token
         HttpResponse<String> loginPage = HTTP.send(
-            HttpRequest.newBuilder().uri(URI.create(BASE + "/login")).GET().build(),
+            HttpRequest.newBuilder().uri(URI.create(BASE + "/api/auth/login-page")).GET().build(),
             HttpResponse.BodyHandlers.ofString());
 
         String csrf = loginPage.body()

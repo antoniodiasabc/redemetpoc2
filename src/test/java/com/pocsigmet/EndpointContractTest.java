@@ -52,7 +52,7 @@ public class EndpointContractTest {
             .build();
 
         HttpResponse<String> loginPage = client.send(
-            HttpRequest.newBuilder().uri(URI.create(BASE_URL + "/login")).GET().build(),
+            HttpRequest.newBuilder().uri(URI.create(BASE_URL + "/api/auth/login-page")).GET().build(),
             HttpResponse.BodyHandlers.ofString());
         String csrf = loginPage.body()
             .replaceAll("(?s).*name=\"_csrf\"[^>]*value=\"([^\"]+)\".*", "$1");
