@@ -113,12 +113,12 @@ src/
 DB_HOST=localhost
 DB_PORT=1521
 DB_NAME=OPMETDB
-DB_USERNAME=novoopmet
-DB_PASSWORD=mudar123
+DB_USERNAME=<usuario>
+DB_PASSWORD=<senha>
 
 # REDEMET API
-REDEMET_USERNAME=testeicaolima
-REDEMET_PASSWORD=Mudar12345@
+REDEMET_USERNAME=<usuario_redemet>
+REDEMET_PASSWORD=<senha_redemet>
 
 # Processamento
 GRIB2_DATA_PATH=./data/grib2
