@@ -58,13 +58,11 @@ public class SecurityConfig {
                     .policy(ReferrerPolicyHeaderWriter.ReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN))
             )
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/actuator/health", "/api/auth/register", "/api/auth/csrf", "/api/auth/login-page").permitAll()
+                .requestMatchers("/actuator/health", "/api/auth/register").permitAll()
                 .requestMatchers("/actuator/**").authenticated()
-                .anyRequest().permitAll()
+                .anyRequest().authenticated()
             )
             .formLogin(form -> form
-                .loginPage("/api/auth/login-page")
-                .loginProcessingUrl("/login")
                 .successHandler(loginHandler)
                 .failureHandler(loginHandler)
                 .permitAll()
