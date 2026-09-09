@@ -57,7 +57,13 @@ public class SecurityConfig {
                 .referrerPolicy(r -> r
                     .policy(ReferrerPolicyHeaderWriter.ReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN))
                 .contentSecurityPolicy(csp -> csp
-                    .policyDirectives("default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cesium.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://getbootstrap.com https://maxcdn.bootstrapcdn.com; img-src 'self' data: blob:; connect-src 'self'; worker-src blob:; font-src 'self' https://cdn.jsdelivr.net https://maxcdn.bootstrapcdn.com"))
+                    .policyDirectives("default-src 'self'; " +
+                        "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cesium.com; " +
+                        "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://getbootstrap.com https://maxcdn.bootstrapcdn.com https://cesium.com; " +
+                        "img-src 'self' data: blob: https://server.arcgisonline.com https://cesium.com; " +
+                        "connect-src 'self' https://cdn.jsdelivr.net https://cesium.com https://opmet.decea.mil.br; " +
+                        "worker-src blob:; " +
+                        "font-src 'self' https://cdn.jsdelivr.net https://maxcdn.bootstrapcdn.com https://cesium.com"))
             )
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/actuator/health", "/api/auth/register").permitAll()
