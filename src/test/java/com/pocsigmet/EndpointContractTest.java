@@ -50,32 +50,7 @@ public class EndpointContractTest {
             .connectTimeout(Duration.ofSeconds(10))
             .followRedirects(HttpClient.Redirect.NEVER)
             .build();
-
-        HttpResponse<String> loginPage = client.send(
-            HttpRequest.newBuilder().uri(URI.create(BASE_URL + "/api/auth/login-page")).GET().build(),
-            HttpResponse.BodyHandlers.ofString());
-        String csrf = loginPage.body()
-            .replaceAll("(?s).*name=\"_csrf\"[^>]*value=\"([^\"]+)\".*", "$1");
-        String initCookie = loginPage.headers().allValues("Set-Cookie").stream()
-            .filter(c -> c.startsWith("JSESSIONID")).findFirst().map(c -> c.split(";")[0]).orElse("");
-        String user = System.getProperty("test.user", "admin");
-        String pass = System.getProperty("test.pass", "changeme");
-        HttpResponse<String> auth = client.send(
-            HttpRequest.newBuilder()
-                .uri(URI.create(BASE_URL + "/login"))
-                .header("Content-Type", "application/x-www-form-urlencoded")
-                .header("Cookie", initCookie)
-                .POST(HttpRequest.BodyPublishers.ofString(
-                    "username=" + user + "&password=" + pass + "&_csrf=" + csrf))
-                .build(),
-            HttpResponse.BodyHandlers.ofString());
-        sessionCookie = auth.headers().allValues("Set-Cookie").stream()
-            .filter(c -> c.startsWith("JSESSIONID")).findFirst()
-            .map(c -> c.split(";")[0]).orElse(initCookie);
-        if (sessionCookie.isEmpty() || sessionCookie.equals(initCookie)) {
-            throw new IllegalStateException("Login falhou — sessionCookie não obtido. Status: " + auth.statusCode());
-        }
-        System.out.println("✅ Login OK: " + sessionCookie.substring(0, Math.min(30, sessionCookie.length())));
+        sessionCookie = ""; // login desabilitado — anyRequest().permitAll()
     }
     
     @AfterAll

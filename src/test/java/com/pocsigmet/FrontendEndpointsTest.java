@@ -27,37 +27,8 @@ public class FrontendEndpointsTest {
             .build();
 
     @BeforeAll
-    static void login() throws Exception {
-        // 1. GET /login para pegar o CSRF token
-        HttpResponse<String> loginPage = HTTP.send(
-            HttpRequest.newBuilder().uri(URI.create(BASE + "/api/auth/login-page")).GET().build(),
-            HttpResponse.BodyHandlers.ofString());
-
-        String csrf = loginPage.body()
-            .replaceAll("(?s).*name=\"_csrf\"[^>]*value=\"([^\"]+)\".*", "$1");
-        String csrfCookie = loginPage.headers().allValues("Set-Cookie").stream()
-            .filter(c -> c.startsWith("JSESSIONID")).findFirst().orElse("");
-        String jsessionid = csrfCookie.split(";")[0];
-
-        // 2. POST /login com credenciais
-        String user = System.getProperty("test.user", "admin");
-        String pass = System.getProperty("test.pass", "changeme");
-        HttpResponse<String> auth = HTTP.send(
-            HttpRequest.newBuilder()
-                .uri(URI.create(BASE + "/login"))
-                .header("Content-Type", "application/x-www-form-urlencoded")
-                .header("Cookie", jsessionid)
-                .POST(HttpRequest.BodyPublishers.ofString(
-                    "username=" + user + "&password=" + pass + "&_csrf=" + csrf))
-                .build(),
-            HttpResponse.BodyHandlers.ofString());
-
-        sessionCookie = auth.headers().allValues("Set-Cookie").stream()
-            .filter(c -> c.startsWith("JSESSIONID")).findFirst()
-            .map(c -> c.split(";")[0]).orElse(jsessionid.split(";")[0]);
-        if (sessionCookie.isEmpty() || sessionCookie.equals(jsessionid.split(";")[0])) {
-            throw new IllegalStateException("Login falhou — sessionCookie não obtido. Status: " + auth.statusCode());
-        }
+    static void login() {
+        sessionCookie = ""; // login desabilitado — anyRequest().permitAll()
     }
 
     // ── utilitário ────────────────────────────────────────────────────────────
