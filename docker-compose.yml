@@ -1,7 +1,7 @@
 services:
   mongo:
     image: mongo:7
-    command: mongod --wiredTigerCacheSizeGB 0.25
+    command: mongod --wiredTigerCacheSizeGB 0.25 --setParameter logComponentVerbosity='{network:{verbosity:-1}}'
     restart: unless-stopped
     volumes:
       - mongo_data:/data/db
