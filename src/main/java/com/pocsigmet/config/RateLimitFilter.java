@@ -23,8 +23,13 @@ public class RateLimitFilter implements Filter {
     private int minutes;
 
     private final Map<String, Bucket> buckets = new ConcurrentHashMap<>();
+    private final LoginAttemptService loginAttemptService;
 
-    private static final String[] EXCLUDED = {"/login", "/logout", "/actuator/health"};
+    public RateLimitFilter(LoginAttemptService loginAttemptService) {
+        this.loginAttemptService = loginAttemptService;
+    }
+
+    private static final String[] EXCLUDED = {"/actuator/health"};
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
@@ -42,6 +47,15 @@ public class RateLimitFilter implements Filter {
         }
 
         String ip = getClientIp(request);
+
+        // A07 — bloqueia IP com muitas tentativas de login falhas
+        if (loginAttemptService.isBlocked(ip)) {
+            response.setStatus(429);
+            response.setContentType("application/json");
+            response.getWriter().write("{\"error\":\"Too Many Login Attempts\",\"retryAfter\":\"15m\"}");
+            return;
+        }
+
         Bucket bucket = buckets.computeIfAbsent(ip, k ->
             Bucket.builder()
                 .addLimit(Bandwidth.builder()
@@ -61,7 +75,9 @@ public class RateLimitFilter implements Filter {
     }
 
     private String getClientIp(HttpServletRequest request) {
-        String ip = request.getHeader("X-Forwarded-For");
+        String ip = request.getHeader("X-Real-IP");
+        if (ip != null && !ip.isBlank()) return ip.trim();
+        ip = request.getHeader("X-Forwarded-For");
         if (ip != null && !ip.isBlank()) return ip.split(",")[0].trim();
         return request.getRemoteAddr();
     }

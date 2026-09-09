@@ -104,7 +104,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics,prometheus
+        include: health,info
   endpoint:
     health:
       show-details: when-authorized
@@ -113,3 +113,7 @@ management:
       enabled: false
     defaults:
       enabled: true
+
+brute-force:
+  max-attempts: ${BRUTE_FORCE_MAX_ATTEMPTS:5}
+  block-minutes: ${BRUTE_FORCE_BLOCK_MINUTES:15}
