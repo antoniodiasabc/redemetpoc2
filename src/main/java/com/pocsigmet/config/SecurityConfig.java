@@ -60,7 +60,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/actuator/health", "/api/auth/register", "/api/auth/csrf", "/api/auth/login-page").permitAll()
                 .requestMatchers("/actuator/**").authenticated()
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
             )
             .formLogin(form -> form
                 .loginPage("/api/auth/login-page")
