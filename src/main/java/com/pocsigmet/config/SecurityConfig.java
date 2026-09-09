@@ -54,7 +54,7 @@ public class SecurityConfig {
                 .permitAll()
             )
             .csrf(csrf -> csrf
-                .ignoringRequestMatchers("/api/**")
+                .ignoringRequestMatchers("/api/**", "/sigmet", "/create_sigmet", "/realcada_hsv", "/hsv_optimized", "/hsv_polygons")
             );
         return http.build();
     }

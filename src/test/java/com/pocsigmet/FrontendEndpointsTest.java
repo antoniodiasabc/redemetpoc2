@@ -19,9 +19,43 @@ import static org.junit.jupiter.api.Assertions.*;
 public class FrontendEndpointsTest {
 
     private static final String BASE = System.getProperty("test.base.url", "http://localhost");
+    private static String sessionCookie = "";
+
     private static final HttpClient HTTP = HttpClient.newBuilder()
             .connectTimeout(Duration.ofSeconds(5))
+            .followRedirects(HttpClient.Redirect.NEVER)
             .build();
+
+    @BeforeAll
+    static void login() throws Exception {
+        // 1. GET /login para pegar o CSRF token
+        HttpResponse<String> loginPage = HTTP.send(
+            HttpRequest.newBuilder().uri(URI.create(BASE + "/login")).GET().build(),
+            HttpResponse.BodyHandlers.ofString());
+
+        String csrf = loginPage.body()
+            .replaceAll("(?s).*name=\"_csrf\"[^>]*value=\"([^\"]+)\".*", "$1");
+        String csrfCookie = loginPage.headers().allValues("Set-Cookie").stream()
+            .filter(c -> c.startsWith("JSESSIONID")).findFirst().orElse("");
+        String jsessionid = csrfCookie.split(";")[0];
+
+        // 2. POST /login com credenciais
+        String user = System.getProperty("test.user", "admin");
+        String pass = System.getProperty("test.pass", "changeme");
+        HttpResponse<String> auth = HTTP.send(
+            HttpRequest.newBuilder()
+                .uri(URI.create(BASE + "/login"))
+                .header("Content-Type", "application/x-www-form-urlencoded")
+                .header("Cookie", jsessionid)
+                .POST(HttpRequest.BodyPublishers.ofString(
+                    "username=" + user + "&password=" + pass + "&_csrf=" + csrf))
+                .build(),
+            HttpResponse.BodyHandlers.ofString());
+
+        sessionCookie = auth.headers().allValues("Set-Cookie").stream()
+            .filter(c -> c.startsWith("JSESSIONID")).findFirst()
+            .map(c -> c.split(";")[0]).orElse(jsessionid.split(";")[0]);
+    }
 
     // ── utilitário ────────────────────────────────────────────────────────────
 
@@ -30,6 +64,7 @@ public class FrontendEndpointsTest {
                 HttpRequest.newBuilder()
                         .uri(URI.create(BASE + path))
                         .timeout(Duration.ofSeconds(timeoutSec))
+                        .header("Cookie", sessionCookie)
                         .GET().build(),
                 HttpResponse.BodyHandlers.ofString());
     }
@@ -40,6 +75,7 @@ public class FrontendEndpointsTest {
                         .uri(URI.create(BASE + path))
                         .timeout(Duration.ofSeconds(10))
                         .header("Content-Type", "application/json")
+                        .header("Cookie", sessionCookie)
                         .POST(HttpRequest.BodyPublishers.ofString(body)).build(),
                 HttpResponse.BodyHandlers.ofString());
     }

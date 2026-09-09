@@ -11,9 +11,35 @@ import java.time.Duration;
 public class EndpointIntegrationTest {
     
     private static final String BASE_URL = System.getProperty("test.base.url", "http://localhost:80");
+    private static String sessionCookie = "";
     private final HttpClient client = HttpClient.newBuilder()
         .connectTimeout(Duration.ofSeconds(10))
+        .followRedirects(HttpClient.Redirect.NEVER)
         .build();
+
+    @org.junit.jupiter.api.BeforeEach
+    void login() throws Exception {
+        if (!sessionCookie.isEmpty()) return;
+        HttpResponse<String> loginPage = client.send(
+            HttpRequest.newBuilder().uri(URI.create(BASE_URL + "/login")).GET().build(),
+            HttpResponse.BodyHandlers.ofString());
+        String csrf = loginPage.body()
+            .replaceAll("(?s).*name=\"_csrf\"[^>]*value=\"([^\"]+)\".*", "$1");
+        String initCookie = loginPage.headers().allValues("Set-Cookie").stream()
+            .filter(c -> c.startsWith("JSESSIONID")).findFirst().map(c -> c.split(";")[0]).orElse("");
+        HttpResponse<String> auth = client.send(
+            HttpRequest.newBuilder()
+                .uri(URI.create(BASE_URL + "/login"))
+                .header("Content-Type", "application/x-www-form-urlencoded")
+                .header("Cookie", initCookie)
+                .POST(HttpRequest.BodyPublishers.ofString(
+                    "username=admin&password=changeme&_csrf=" + csrf))
+                .build(),
+            HttpResponse.BodyHandlers.ofString());
+        sessionCookie = auth.headers().allValues("Set-Cookie").stream()
+            .filter(c -> c.startsWith("JSESSIONID")).findFirst()
+            .map(c -> c.split(";")[0]).orElse(initCookie);
+    }
     
     @Test
     public void testHealthEndpoint() {
@@ -21,6 +47,7 @@ public class EndpointIntegrationTest {
             HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(BASE_URL + "/health"))
                 .timeout(Duration.ofSeconds(5))
+                .header("Cookie", sessionCookie)
                 .build();
                 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -39,6 +66,7 @@ public class EndpointIntegrationTest {
             HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(BASE_URL + "/frames"))
                 .timeout(Duration.ofSeconds(5))
+                .header("Cookie", sessionCookie)
                 .build();
                 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -57,6 +85,7 @@ public class EndpointIntegrationTest {
             HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(BASE_URL + "/canal16frames"))
                 .timeout(Duration.ofSeconds(5))
+                .header("Cookie", sessionCookie)
                 .build();
                 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -76,6 +105,7 @@ public class EndpointIntegrationTest {
             HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(BASE_URL + "/api/wind/barbs/fl050?skip=4"))
                 .timeout(Duration.ofSeconds(30)) // Barbelas podem demorar
+                .header("Cookie", sessionCookie)
                 .build();
                 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -95,6 +125,7 @@ public class EndpointIntegrationTest {
             HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(BASE_URL + "/metar_top200_sb"))
                 .timeout(Duration.ofSeconds(30))
+                .header("Cookie", sessionCookie)
                 .build();
                 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());

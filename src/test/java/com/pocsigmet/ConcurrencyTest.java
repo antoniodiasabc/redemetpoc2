@@ -12,9 +12,35 @@ import java.util.concurrent.CompletableFuture;
 public class ConcurrencyTest {
     
     private static final String BASE_URL = System.getProperty("test.base.url", "http://localhost:80");
+    private static String sessionCookie = "";
     private final HttpClient client = HttpClient.newBuilder()
         .connectTimeout(Duration.ofSeconds(10))
+        .followRedirects(HttpClient.Redirect.NEVER)
         .build();
+
+    @org.junit.jupiter.api.BeforeEach
+    void login() throws Exception {
+        if (!sessionCookie.isEmpty()) return;
+        HttpResponse<String> loginPage = client.send(
+            HttpRequest.newBuilder().uri(URI.create(BASE_URL + "/login")).GET().build(),
+            HttpResponse.BodyHandlers.ofString());
+        String csrf = loginPage.body()
+            .replaceAll("(?s).*name=\"_csrf\"[^>]*value=\"([^\"]+)\".*", "$1");
+        String initCookie = loginPage.headers().allValues("Set-Cookie").stream()
+            .filter(c -> c.startsWith("JSESSIONID")).findFirst().map(c -> c.split(";")[0]).orElse("");
+        HttpResponse<String> auth = client.send(
+            HttpRequest.newBuilder()
+                .uri(URI.create(BASE_URL + "/login"))
+                .header("Content-Type", "application/x-www-form-urlencoded")
+                .header("Cookie", initCookie)
+                .POST(HttpRequest.BodyPublishers.ofString(
+                    "username=admin&password=changeme&_csrf=" + csrf))
+                .build(),
+            HttpResponse.BodyHandlers.ofString());
+        sessionCookie = auth.headers().allValues("Set-Cookie").stream()
+            .filter(c -> c.startsWith("JSESSIONID")).findFirst()
+            .map(c -> c.split(";")[0]).orElse(initCookie);
+    }
     
     @Test
     public void testConcurrentOperations() {
@@ -25,7 +51,8 @@ public class ConcurrencyTest {
             long startHealth = System.currentTimeMillis();
             HttpRequest healthRequest = HttpRequest.newBuilder()
                 .uri(URI.create(BASE_URL + "/health"))
-                .timeout(Duration.ofSeconds(20)) // Aumentar timeout
+                .timeout(Duration.ofSeconds(20))
+                .header("Cookie", sessionCookie)
                 .build();
             
             HttpResponse<String> healthResponse = client.send(healthRequest, HttpResponse.BodyHandlers.ofString());
@@ -41,7 +68,8 @@ public class ConcurrencyTest {
             // Testar se barbelas retorna rate limit (sem aguardar processamento)
             HttpRequest barbelasRequest = HttpRequest.newBuilder()
                 .uri(URI.create(BASE_URL + "/api/wind/barbs/fl050?skip=4"))
-                .timeout(Duration.ofSeconds(5)) // Timeout curto - esperamos rate limit
+                .timeout(Duration.ofSeconds(5))
+                .header("Cookie", sessionCookie)
                 .build();
             
             HttpResponse<String> barbelasResponse = client.send(barbelasRequest, HttpResponse.BodyHandlers.ofString());

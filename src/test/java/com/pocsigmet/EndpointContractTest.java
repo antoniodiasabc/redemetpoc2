@@ -41,14 +41,37 @@ public class EndpointContractTest {
     private static final Duration TIMEOUT = Duration.ofSeconds(30);
     
     private static HttpClient client;
+    private static String sessionCookie = "";
     private static List<String> failedEndpoints = new ArrayList<>();
     
     @BeforeAll
-    static void setup() {
+    static void setup() throws Exception {
         client = HttpClient.newBuilder()
             .connectTimeout(Duration.ofSeconds(10))
-            .followRedirects(HttpClient.Redirect.NORMAL)
+            .followRedirects(HttpClient.Redirect.NEVER)
             .build();
+
+        HttpResponse<String> loginPage = client.send(
+            HttpRequest.newBuilder().uri(URI.create(BASE_URL + "/login")).GET().build(),
+            HttpResponse.BodyHandlers.ofString());
+        String csrf = loginPage.body()
+            .replaceAll("(?s).*name=\"_csrf\"[^>]*value=\"([^\"]+)\".*", "$1");
+        String initCookie = loginPage.headers().allValues("Set-Cookie").stream()
+            .filter(c -> c.startsWith("JSESSIONID")).findFirst().map(c -> c.split(";")[0]).orElse("");
+        String user = System.getProperty("test.user", "admin");
+        String pass = System.getProperty("test.pass", "changeme");
+        HttpResponse<String> auth = client.send(
+            HttpRequest.newBuilder()
+                .uri(URI.create(BASE_URL + "/login"))
+                .header("Content-Type", "application/x-www-form-urlencoded")
+                .header("Cookie", initCookie)
+                .POST(HttpRequest.BodyPublishers.ofString(
+                    "username=" + user + "&password=" + pass + "&_csrf=" + csrf))
+                .build(),
+            HttpResponse.BodyHandlers.ofString());
+        sessionCookie = auth.headers().allValues("Set-Cookie").stream()
+            .filter(c -> c.startsWith("JSESSIONID")).findFirst()
+            .map(c -> c.split(";")[0]).orElse(initCookie);
     }
     
     @AfterAll
@@ -71,6 +94,7 @@ public class EndpointContractTest {
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create(BASE_URL + path))
             .timeout(TIMEOUT)
+            .header("Cookie", sessionCookie)
             .GET()
             .build();
         return client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -80,6 +104,7 @@ public class EndpointContractTest {
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create(BASE_URL + path))
             .timeout(TIMEOUT)
+            .header("Cookie", sessionCookie)
             .GET()
             .build();
         return client.send(request, HttpResponse.BodyHandlers.ofByteArray());
