@@ -1,11 +1,10 @@
 package com.pocsigmet.config;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
-import java.time.Instant;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.time.Duration;
 
 @Component
 public class LoginAttemptService {
@@ -16,29 +15,30 @@ public class LoginAttemptService {
     @Value("${brute-force.block-minutes:15}")
     private int blockMinutes;
 
-    private record Attempt(int count, Instant blockedUntil) {}
+    private static final String PREFIX = "login:attempts:";
+    private static final String BLOCK_PREFIX = "login:blocked:";
 
-    private final Map<String, Attempt> attempts = new ConcurrentHashMap<>();
+    private final StringRedisTemplate redis;
+
+    public LoginAttemptService(StringRedisTemplate redis) {
+        this.redis = redis;
+    }
 
     public void loginFailed(String ip) {
-        attempts.compute(ip, (k, a) -> {
-            int count = (a == null ? 0 : a.count()) + 1;
-            Instant blockedUntil = count >= maxAttempts
-                ? Instant.now().plusSeconds(blockMinutes * 60L)
-                : Instant.EPOCH;
-            return new Attempt(count, blockedUntil);
-        });
+        String key = PREFIX + ip;
+        Long attempts = redis.opsForValue().increment(key);
+        if (attempts == 1) redis.expire(key, Duration.ofMinutes(blockMinutes));
+        if (attempts >= maxAttempts) {
+            redis.opsForValue().set(BLOCK_PREFIX + ip, "1", Duration.ofMinutes(blockMinutes));
+        }
     }
 
     public void loginSucceeded(String ip) {
-        attempts.remove(ip);
+        redis.delete(PREFIX + ip);
+        redis.delete(BLOCK_PREFIX + ip);
     }
 
     public boolean isBlocked(String ip) {
-        Attempt a = attempts.get(ip);
-        if (a == null) return false;
-        if (a.blockedUntil().isAfter(Instant.now())) return true;
-        if (a.blockedUntil() != Instant.EPOCH) attempts.remove(ip); // expirou
-        return false;
+        return Boolean.TRUE.equals(redis.hasKey(BLOCK_PREFIX + ip));
     }
 }

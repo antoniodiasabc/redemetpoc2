@@ -67,14 +67,14 @@ public class MetarFiltroHandler {
 
     private Predicate<String> buildFiltro(String tipo) {
         Map<String, Predicate<String>> palavras = new HashMap<>();
-        palavras.put("rajada",     m -> m.matches(".*\\d{5}G\\d{2,3}KT.*"));
+        palavras.put("rajada",     m -> m.matches("(?s).*\\d{5}G\\d{2,3}KT.*"));
         palavras.put("trovoada",   m -> m.contains("TS"));
         palavras.put("nevoeiro",   m -> m.contains("FG"));
         palavras.put("nevoa",      m -> m.contains("BR"));
         palavras.put("chuva",      m -> m.contains("RA") || m.contains("SH"));
         palavras.put("congelante", m -> m.contains("FZ"));
-        palavras.put("cb",         m -> m.matches(".*[\\d/]{3}CB.*"));
-        palavras.put("variavel",   m -> m.matches(".*\\d{3}V\\d{3}.*"));
+        palavras.put("cb",         m -> m.matches("(?s).*[\\d/]{3}CB.*"));
+        palavras.put("variavel",   m -> m.matches("(?s).*\\d{3}V\\d{3}.*"));
 
         String lower = tipo.toLowerCase();
         if (palavras.containsKey(lower)) return palavras.get(lower);

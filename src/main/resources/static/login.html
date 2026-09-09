@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SIGMET - Login</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #1a1a2e; display: flex; align-items: center; justify-content: center; height: 100vh; }
+    .card { background: #16213e; padding: 2rem; border-radius: 8px; width: 100%; max-width: 360px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+    h2 { color: #e0e0e0; text-align: center; margin-bottom: 1.5rem; font-size: 1.3rem; letter-spacing: 1px; }
+    label { display: block; color: #aaa; font-size: 0.85rem; margin-bottom: 4px; }
+    input { width: 100%; padding: 0.6rem 0.8rem; border: 1px solid #0f3460; border-radius: 4px; background: #0f3460; color: #e0e0e0; font-size: 1rem; margin-bottom: 1rem; }
+    input:focus { outline: none; border-color: #e94560; }
+    button { width: 100%; padding: 0.7rem; background: #e94560; color: #fff; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer; }
+    button:hover { background: #c73652; }
+    .error { color: #e94560; font-size: 0.85rem; text-align: center; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>🌦 SIGMET</h2>
+    <form method="post" action="/login">
+      <div id="error-msg" class="error" style="display:none"></div>
+      <label for="username">Usuário</label>
+      <input type="text" id="username" name="username" required autofocus>
+      <label for="password">Senha</label>
+      <input type="password" id="password" name="password" required>
+      <input type="hidden" id="csrf" name="_csrf" value="">
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('error')) {
+      const el = document.getElementById('error-msg');
+      el.textContent = 'Usuário ou senha inválidos.';
+      el.style.display = 'block';
+    }
+    fetch('/api/auth/csrf').then(r => r.json()).then(d => {
+      document.getElementById('csrf').value = d.token;
+    });
+  </script>
+</body>
+</html>

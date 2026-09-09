@@ -56,21 +56,15 @@ public class SecurityConfig {
                     .maxAgeInSeconds(31536000))
                 .referrerPolicy(r -> r
                     .policy(ReferrerPolicyHeaderWriter.ReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN))
-                .contentSecurityPolicy(csp -> csp
-                    .policyDirectives("default-src 'self'; " +
-                        "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cesium.com; " +
-                        "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://getbootstrap.com https://maxcdn.bootstrapcdn.com https://cesium.com; " +
-                        "img-src 'self' data: blob: https://server.arcgisonline.com https://cesium.com https://*.openstreetmap.org https://tile.openstreetmap.org; " +
-                        "connect-src 'self' https://cdn.jsdelivr.net https://cesium.com https://opmet.decea.mil.br; " +
-                        "worker-src blob:; " +
-                        "font-src 'self' https://cdn.jsdelivr.net https://maxcdn.bootstrapcdn.com https://cesium.com"))
             )
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/actuator/health", "/api/auth/register").permitAll()
+                .requestMatchers("/actuator/health", "/api/auth/register", "/api/auth/csrf", "/api/auth/login-page").permitAll()
                 .requestMatchers("/actuator/**").authenticated()
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
+                .loginPage("/api/auth/login-page")
+                .loginProcessingUrl("/login")
                 .successHandler(loginHandler)
                 .failureHandler(loginHandler)
                 .permitAll()

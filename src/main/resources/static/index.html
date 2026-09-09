@@ -348,7 +348,6 @@
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="chk3d-grib2"   checked onchange="if(window._cesiumGrib2Billboards)window._cesiumGrib2Billboards.show=this.checked">GRIB2</label>
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="chk3d-radar" checked onchange="_toggle3DRadar(this.checked)">Radar</label>
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="chk3d-canal16" checked onchange="if(window._cesiumCanal16Layer)window._cesiumCanal16Layer.show=this.checked">Canal 16</label>
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="chk3d-cptec" checked onchange="if(window._cesiumCptecLayer)window._cesiumCptecLayer.show=this.checked">CPTEC</label>
     </div>
     <div id="polygon-edit-controls" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); z-index:9999; background:white; padding:16px 20px; border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.4); text-align:center;">
         <div style="margin-bottom:10px; font-size:13px; font-weight:bold;">✏️ Edite os vértices e confirme</div>
@@ -700,6 +699,16 @@
                 zoom: 5
             })
         });
+
+        // Patch: evita SynchronizedOverlay bug ao adicionar overlays com 3D ativo
+        const _origAddOverlay = map.addOverlay.bind(map);
+        map.addOverlay = function(overlay) {
+            if (ol3d && ol3d.getEnabled()) {
+                try { _origAddOverlay(overlay); } catch(e) {}
+                return;
+            }
+            _origAddOverlay(overlay);
+        };
 
         // Adicionar coordenadas no mapa
         const mousePositionControl = new ol.control.MousePosition({
@@ -1066,13 +1075,13 @@
                     delete window._cesiumRadarCircles[sigla];
                 }
                 if (visible) {
-                    const provider = new Cesium.SingleTileImageryProvider({
-                        url: '/api/radar/img?url=' + encodeURIComponent(r.url),
+                    Cesium.SingleTileImageryProvider.fromUrl('/api/radar/img?url=' + encodeURIComponent(r.url), {
                         rectangle: Cesium.Rectangle.fromDegrees(r.oeste, r.sul, r.leste, r.norte)
+                    }).then(provider => {
+                        const layer = imgLayers.addImageryProvider(provider);
+                        layer.alpha = 0.8;
+                        window._cesiumRadarLayers[key] = layer;
                     });
-                    const layer = imgLayers.addImageryProvider(provider);
-                    layer.alpha = 0.8;
-                    window._cesiumRadarLayers[key] = layer;
                     // círculo tracejado
                     window._cesiumRadarCircles[sigla] = scene.primitives.add(new Cesium.Primitive({
                         geometryInstances: new Cesium.GeometryInstance({
@@ -1121,8 +1130,10 @@
         async function _loadAnimFrames() {
             const ativos = Object.keys(_radarActive).filter(s => _radarActive[s]);
             for (const sigla of ativos) {
-                const frames = await fetch('/api/radar/history/' + sigla, {cache:'no-store'}).then(r => r.json());
-                // preserva índice relativo ao fim para não pular frames durante refresh
+                const resp = await fetch('/api/radar/history/' + sigla, {cache:'no-store'});
+                if (!resp.ok) continue;
+                const frames = await resp.json();
+                if (!Array.isArray(frames) || frames.length < 2) continue;
                 const oldLen = (_radarAnimFrames[sigla] || []).length;
                 const oldIdx = _radarAnimIdx[sigla] || 0;
                 _radarAnimFrames[sigla] = frames;
@@ -1145,11 +1156,17 @@
                 const url = frames[idx];
                 const r = _radarData[sigla];
                 const ext = ol.proj.transformExtent([r.oeste, r.sul, r.leste, r.norte], 'EPSG:4326', 'EPSG:3857');
+                // atualiza 2D
                 _radarLayers[sigla].setSource(new ol.source.ImageStatic({
                     url: '/api/radar/img?url=' + encodeURIComponent(url),
                     imageExtent: ext,
                     attributions: r.nome
                 }));
+                // atualiza 3D — alterna show sem remover/adicionar layers
+                if (ol3d && ol3d.getEnabled() && window._cesiumAnimLayers && window._cesiumAnimLayers[sigla]) {
+                    const layers = window._cesiumAnimLayers[sigla];
+                    layers.forEach((l, i) => l.show = (i === idx));
+                }
                 const m = url.match(/(\d{4}-\d{2}-\d{2})--(\d{2}:\d{2})/);
                 const label = m ? m[1].slice(5) + ' ' + m[2] + 'Z' : '';
                 _setRadarFrameLabel(sigla, (idx+1) + '/' + frames.length + ' · ' + label);
@@ -1162,6 +1179,37 @@
                 stopRadarAnim();
             } else {
                 await _loadAnimFrames();
+                // pré-carrega todas as layers 3D e mantém ocultas
+                if (ol3d && ol3d.getEnabled()) {
+                    const ativos = Object.keys(_radarActive).filter(s => _radarActive[s]);
+                    window._cesiumAnimLayers = {};
+                    await Promise.all(ativos.map(async sigla => {
+                        const frames = _radarAnimFrames[sigla] || [];
+                        const r = _radarData[sigla];
+                        const rect = Cesium.Rectangle.fromDegrees(r.oeste, r.sul, r.leste, r.norte);
+                        const imgLayers = ol3d.getCesiumScene().globe.imageryLayers;
+                        // remove layer estática atual do radar
+                        const key = 'radar_' + sigla;
+                        if (window._cesiumRadarLayers && window._cesiumRadarLayers[key]) {
+                            imgLayers.remove(window._cesiumRadarLayers[key]);
+                            window._cesiumRadarLayers[key] = null;
+                        }
+                        window._cesiumAnimLayers[sigla] = await Promise.all(
+                            frames.map(async url => {
+                                const provider = await Cesium.SingleTileImageryProvider.fromUrl(
+                                    '/api/radar/img?url=' + encodeURIComponent(url), { rectangle: rect }
+                                );
+                                const layer = imgLayers.addImageryProvider(provider);
+                                layer.alpha = 0.8;
+                                layer.show = false;
+                                return layer;
+                            })
+                        );
+                        // mostra primeiro frame
+                        if (window._cesiumAnimLayers[sigla].length)
+                            window._cesiumAnimLayers[sigla][0].show = true;
+                    }));
+                }
                 _radarAnimTimer = setInterval(_animStep, 700);
                 _radarAnimRefreshTimer = setInterval(_loadAnimFrames, 5 * 60 * 1000);
                 if (btn) { btn.textContent = '⏹ Parar'; btn.style.background = '#c62828'; }
@@ -1173,32 +1221,29 @@
             if (_radarAnimRefreshTimer) { clearInterval(_radarAnimRefreshTimer); _radarAnimRefreshTimer = null; }
             const btn = document.getElementById('radar-anim-btn');
             if (btn) { btn.textContent = '▶ Animar'; btn.style.background = '#1565c0'; }
-            // remove labels flutuantes
-            if (window._radarOverlays) {
-                Object.values(window._radarOverlays).forEach(o => map.removeOverlay(o));
-                window._radarOverlays = {};
+            document.querySelectorAll('[id^="radar-frame-label-"]').forEach(el => el.remove());
+            // remove layers de animação 3D e restaura estática
+            if (ol3d && ol3d.getEnabled() && window._cesiumAnimLayers) {
+                const imgLayers = ol3d.getCesiumScene().globe.imageryLayers;
+                Object.values(window._cesiumAnimLayers).forEach(layers => layers.forEach(l => imgLayers.remove(l)));
+                window._cesiumAnimLayers = null;
+                Object.keys(_radarActive).filter(s => _radarActive[s]).forEach(s => _applyRadarLayer(s, true));
             }
-            // restaura frame mais recente
+            // restaura frame mais recente 2D
             Object.keys(_radarActive).filter(s => _radarActive[s]).forEach(s => _applyRadarLayer(s, true));
         }
 
         function _setRadarFrameLabel(sigla, text) {
-            if (!window._radarOverlays) window._radarOverlays = {};
-            if (!window._radarOverlays[sigla]) {
-                const el = document.createElement('div');
-                el.className = 'radar-frame-label';
-                el.style.cssText = 'background:rgba(0,0,0,0.7);color:#4dd0e1;font-family:monospace;font-size:10px;padding:2px 5px;border-radius:3px;pointer-events:none;white-space:nowrap;';
-                const r = _radarData[sigla];
-                const overlay = new ol.Overlay({
-                    element: el,
-                    position: ol.proj.fromLonLat([r.lon, r.norte - 0.5]),
-                    positioning: 'top-center',
-                    stopEvent: false
-                });
-                map.addOverlay(overlay);
-                window._radarOverlays[sigla] = overlay;
+            const labelId = 'radar-frame-label-' + sigla;
+            let el = document.getElementById(labelId);
+            if (!el) {
+                el = document.createElement('div');
+                el.id = labelId;
+                el.style.cssText = 'position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.7);color:#4dd0e1;font-family:monospace;font-size:11px;padding:3px 8px;border-radius:3px;pointer-events:none;white-space:nowrap;z-index:9999;';
+                document.body.appendChild(el);
             }
-            window._radarOverlays[sigla].getElement().textContent = '🟡 ' + _radarData[sigla].nome.replace('Radar de ','') + ' · ' + text;
+            el.textContent = '🟡 ' + _radarData[sigla].nome.replace('Radar de ','') + ' · ' + text;
+            el.style.display = 'block';
         }
         // ─────────────────────────────────────────────────────────────
 
@@ -4988,12 +5033,19 @@ async function toggle3D() {
     if (!ol3d) {
         const token = await fetch('/api/v1/config/cesium-token').then(r => r.text());
         Cesium.Ion.defaultAccessToken = token;
+        // Remove overlays antes de inicializar ol3d para evitar SynchronizedOverlay bug
+        const overlays = map.getOverlays().getArray().slice();
+        overlays.forEach(o => map.removeOverlay(o));
+
         ol3d = new olcs.OLCesium({ map: map });
         ol3d.getCesiumScene().globe.enableLighting = false;
         // forçar Bing Maps Aerial como imagery
         ol3d.getCesiumScene().globe.imageryLayers.removeAll();
+        window._cesiumCanal16Layer = null;
+        window._cesiumCptecLayer = null;
+        window._cesiumRadarLayers = null;
         ol3d.getCesiumScene().globe.imageryLayers.addImageryProvider(
-            await Cesium.IonImageryProvider.fromAssetId(2)
+            new Cesium.OpenStreetMapImageryProvider({ url: 'https://tile.openstreetmap.org/' })
         );
         ol3d.setEnabled(true);
         // centraliza no Brasil
@@ -5013,8 +5065,9 @@ async function toggle3D() {
 }
 
 function _toggle3DLayer(key, visible) {
-    if (window._cesium3DLayers && window._cesium3DLayers[key] !== undefined)
-        window._cesium3DLayers[key].show = visible;
+    if (!window._cesium3DLayers) return;
+    if (window._cesium3DLayers[key] !== undefined) window._cesium3DLayers[key].show = visible;
+    if (window._cesium3DLayers['labels_' + key] !== undefined) window._cesium3DLayers['labels_' + key].show = visible;
 }
 
 function _toggle3DRadar(visible) {
@@ -5031,24 +5084,26 @@ function _sync3DImageLayers() {
         _applyRadarLayer(sigla, true);
     });
 
-    // canal16
-    if (canal16Layer && canal16Layer.getVisible() && !window._cesiumCanal16Layer) {
-        const provider = new Cesium.SingleTileImageryProvider({
-            url: '/canal16',
+    // canal16 — sempre adiciona no 3D independente do estado 2D
+    if (canal16Layer && !window._cesiumCanal16Layer) {
+        Cesium.SingleTileImageryProvider.fromUrl('/canal16', {
             rectangle: Cesium.Rectangle.fromDegrees(-118.52, -53.2, -24.09, 38.8)
+        }).then(provider => {
+            window._cesiumCanal16Layer = imgLayers.addImageryProvider(provider);
+            window._cesiumCanal16Layer.alpha = 0.8;
+            window._cesiumCanal16Layer.show = canal16Layer.getVisible();
         });
-        window._cesiumCanal16Layer = imgLayers.addImageryProvider(provider);
-        window._cesiumCanal16Layer.alpha = 0.8;
     }
 
-    // cptec
-    if (cptecLayer && cptecLayer.getVisible() && !window._cesiumCptecLayer) {
-        const provider = new Cesium.SingleTileImageryProvider({
-            url: '/cptec',
+    // cptec — sempre adiciona no 3D independente do estado 2D
+    if (cptecLayer && !window._cesiumCptecLayer) {
+        Cesium.SingleTileImageryProvider.fromUrl('/cptec', {
             rectangle: Cesium.Rectangle.fromDegrees(-99.75, -55, -25.25, 20)
+        }).then(provider => {
+            window._cesiumCptecLayer = imgLayers.addImageryProvider(provider);
+            window._cesiumCptecLayer.alpha = 0.8;
+            window._cesiumCptecLayer.show = cptecLayer.getVisible();
         });
-        window._cesiumCptecLayer = imgLayers.addImageryProvider(provider);
-        window._cesiumCptecLayer.alpha = 0.8;
     }
 }
 
@@ -5061,11 +5116,15 @@ async function plotSigwx3D() {
         Object.values(window._cesium3DLayers).forEach(c => scene.primitives.remove(c));
     }
     window._cesium3DLayers = {
-        fir:     scene.primitives.add(new Cesium.PrimitiveCollection()),
-        sigmet:  scene.primitives.add(new Cesium.PrimitiveCollection()),
-        vizinho: scene.primitives.add(new Cesium.PrimitiveCollection()),
-        sigwx:   scene.primitives.add(new Cesium.PrimitiveCollection()),
-        labels:  scene.primitives.add(new Cesium.LabelCollection())
+        fir:          scene.primitives.add(new Cesium.PrimitiveCollection()),
+        sigmet:       scene.primitives.add(new Cesium.PrimitiveCollection()),
+        vizinho:      scene.primitives.add(new Cesium.PrimitiveCollection()),
+        sigwx:        scene.primitives.add(new Cesium.PrimitiveCollection()),
+        labels:       scene.primitives.add(new Cesium.LabelCollection()),
+        labels_sigmet:  scene.primitives.add(new Cesium.LabelCollection()),
+        labels_vizinho: scene.primitives.add(new Cesium.LabelCollection()),
+        labels_sigwx:   scene.primitives.add(new Cesium.LabelCollection()),
+        labels_fir:     scene.primitives.add(new Cesium.LabelCollection())
     };
 
     const [sigwx, sigmets, vizinhos, firsData] = await Promise.all([
@@ -5142,7 +5201,8 @@ async function plotSigwx3D() {
                 : src === 'vizinho' ? `SIGMET VIZ\n${p.fir||''} ${p.sigmetType||''}`
                 : `${p.type||''}${p.cloudType==='9'?' CB':''}\nFL${p.flLower||'0'}-${p.flUpper||'---'}`;
 
-            labels.add({
+            const labelCol = window._cesium3DLayers['labels_' + src] || window._cesium3DLayers.labels;
+            labelCol.add({
                 position: Cesium.Cartesian3.fromDegrees(cLon, cLat, topM + (isFir ? 50000 : 5000)),
                 text: labelText,
                 font: isFir ? 'bold 14px sans-serif' : 'bold 12px sans-serif',
