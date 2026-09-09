@@ -46,7 +46,8 @@ data/hsv_metadata.json
 data/canal16_latest.jpg
 data/realcada_latest.png
 data/vis_latest.png
-frames/
+data/hsv_updated.txt
+data/portainer.db
 
 # === Backup files ===
 *.backup
