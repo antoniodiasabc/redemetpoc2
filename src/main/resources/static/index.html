@@ -4335,6 +4335,10 @@ Coordenadas: ${coords[1].toFixed(3)}°, ${coords[0].toFixed(3)}°`);
             try {
                 // Endpoint desativado — use /metar_top200_sb
                 const response = await fetch('/metar_top200_sb');
+                if (!response.ok) {
+                    if (response.status === 302 || response.status === 401) location.reload();
+                    throw new Error('HTTP ' + response.status);
+                }
                 const airportsData = await response.json();
                 
                 console.log('METARs recebidos:', airportsData);

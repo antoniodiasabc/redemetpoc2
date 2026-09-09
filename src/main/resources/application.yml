@@ -2,6 +2,8 @@ server:
   port: 8082
   servlet:
     context-path: /
+    session:
+      timeout: 8h
   compression:
     enabled: true
     mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
