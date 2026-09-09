@@ -60,7 +60,7 @@ public class SecurityConfig {
                     .policyDirectives("default-src 'self'; " +
                         "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cesium.com; " +
                         "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://getbootstrap.com https://maxcdn.bootstrapcdn.com https://cesium.com; " +
-                        "img-src 'self' data: blob: https://server.arcgisonline.com https://cesium.com; " +
+                        "img-src 'self' data: blob: https://server.arcgisonline.com https://cesium.com https://*.openstreetmap.org https://tile.openstreetmap.org; " +
                         "connect-src 'self' https://cdn.jsdelivr.net https://cesium.com https://opmet.decea.mil.br; " +
                         "worker-src blob:; " +
                         "font-src 'self' https://cdn.jsdelivr.net https://maxcdn.bootstrapcdn.com https://cesium.com"))
