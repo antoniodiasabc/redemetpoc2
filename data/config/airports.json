@@ -12,6 +12,36 @@
     "lon": -46.656
   },
   {
+    "icao": "SBCH",
+    "nome": "Chapecó",
+    "lat": -27.134,
+    "lon": -52.656
+  },
+  {
+    "icao": "SBJH",
+    "nome": "São Paulo Catarina",
+    "lat": -23.528,
+    "lon": -47.105
+  },
+  {
+    "icao": "SBMG",
+    "nome": "Maringá",
+    "lat": -23.476,
+    "lon": -52.016
+  },
+  {
+    "icao": "SBBP",
+    "nome": "Presidente Prudente",
+    "lat": -22.175,
+    "lon": -51.189
+  },
+  {
+    "icao": "SBJD",
+    "nome": "Jundiaí",
+    "lat": -23.180,
+    "lon": -46.944
+  },
+  {
     "icao": "SBRJ",
     "nome": "Santos Dumont",
     "lat": -22.91,

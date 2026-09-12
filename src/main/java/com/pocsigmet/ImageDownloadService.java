@@ -58,9 +58,10 @@ public class ImageDownloadService {
 
     private boolean downloadRealcadaImage() {
         LocalDateTime now = LocalDateTime.now(java.time.ZoneOffset.UTC);
+        now = now.withMinute((now.getMinute() / 10) * 10).withSecond(0).withNano(0);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
-        for (int i = 0; i < 18; i++) {
-            LocalDateTime time = now.minusMinutes(i * 20);
+        for (int i = 0; i < 36; i++) {
+            LocalDateTime time = now.minusMinutes(i * 10);
             String timeStr = time.format(formatter);
             String url = String.format("https://redemet.decea.mil.br/old/satelite/%s/realcada/realcada_%s.png",
                 time.format(DateTimeFormatter.ofPattern("yyyy/MM/dd")), timeStr);
@@ -133,19 +134,23 @@ public class ImageDownloadService {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
         DateTimeFormatter pathFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         int minuto = now.getMinute();
-        now = now.withMinute(minuto >= 40 ? 40 : minuto >= 20 ? 20 : 0).withSecond(0).withNano(0);
+        now = now.withMinute((minuto / 10) * 10).withSecond(0).withNano(0);
         int baixadas = 0;
-        boolean primeiraEncontrada = false;
-        for (int i = 0; i < 72 && baixadas < 10; i++) {
-            LocalDateTime time = now.minusMinutes(i * 20);
+        String latestFilename = null;
+        for (int i = 0; i < 144 && baixadas < 10; i++) {
+            LocalDateTime time = now.minusMinutes(i * 10);
             String timeStr = time.format(formatter);
             String filename = "data/realcada_" + timeStr + ".png";
-            if (new File(filename).exists()) continue;
-            if (downloadImage(String.format("https://estatico-redemet.decea.mil.br/satelite/%s/realcada/realcada_%s.png", time.format(pathFormatter), timeStr), filename)) {
-                if (!primeiraEncontrada) { try { java.nio.file.Files.deleteIfExists(java.nio.file.Paths.get("data/realcada_latest.png")); java.nio.file.Files.copy(java.nio.file.Paths.get(filename), java.nio.file.Paths.get("data/realcada_latest.png")); } catch (Exception e) {} primeiraEncontrada = true; }
+            if (new File(filename).exists()) {
+                if (latestFilename == null) latestFilename = filename; // já existe no disco, mas é a mais recente
+                continue;
+            }
+            if (downloadImage(String.format("https://redemet.decea.mil.br/old/satelite/%s/realcada/realcada_%s.png", time.format(pathFormatter), timeStr), filename)) {
+                if (latestFilename == null) latestFilename = filename;
                 log.info("✅ Realçada NEW: " + timeStr); baixadas++;
             }
         }
+        if (latestFilename != null) { try { java.nio.file.Files.deleteIfExists(java.nio.file.Paths.get("data/realcada_latest.png")); java.nio.file.Files.copy(java.nio.file.Paths.get(latestFilename), java.nio.file.Paths.get("data/realcada_latest.png")); } catch (Exception e) {} }
         if (baixadas == 0) log.info("❌ REDEMET Realçada NEW: Nenhuma imagem nova disponível");
         return baixadas > 0;
     }
@@ -155,14 +160,14 @@ public class ImageDownloadService {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
         DateTimeFormatter pathFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         int minuto = now.getMinute();
-        now = now.withMinute(minuto >= 40 ? 40 : minuto >= 20 ? 20 : 0).withSecond(0).withNano(0);
+        now = now.withMinute((minuto / 10) * 10).withSecond(0).withNano(0);
         int baixadas = 0;
-        for (int i = 0; i < 72 && baixadas < 10; i++) {
-            LocalDateTime time = now.minusMinutes(i * 20);
+        for (int i = 0; i < 144 && baixadas < 10; i++) {
+            LocalDateTime time = now.minusMinutes(i * 10);
             String timeStr = time.format(formatter);
             String filename = "data/vis_" + timeStr + ".png";
             if (new File(filename).exists()) continue;
-            if (downloadImage(String.format("https://estatico-redemet.decea.mil.br/satelite/%s/vis/vis_%s.png", time.format(pathFormatter), timeStr), filename)) {
+            if (downloadImage(String.format("https://redemet.decea.mil.br/old/satelite/%s/vis/vis_%s.png", time.format(pathFormatter), timeStr), filename)) {
                 if (baixadas == 0) { try { java.nio.file.Files.deleteIfExists(java.nio.file.Paths.get("data/vis_latest_new.png")); java.nio.file.Files.copy(java.nio.file.Paths.get(filename), java.nio.file.Paths.get("data/vis_latest_new.png")); } catch (Exception e) {} }
                 log.info("✅ VIS NEW: " + timeStr); baixadas++;
             }
@@ -175,7 +180,7 @@ public class ImageDownloadService {
         try {
             File existingFile = new File(filename);
             if (existingFile.exists() && existingFile.length() > 10000) return true;
-            if (urlStr.contains("satelite.cptec.inpe.br")) return downloadImageViaCurl(urlStr, filename);
+            if (urlStr.contains("satelite.cptec.inpe.br") || urlStr.contains("estatico-redemet.decea.mil.br")) return downloadImageViaCurl(urlStr, filename);
             URL url = new URL(urlStr);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setConnectTimeout(5000); conn.setReadTimeout(8000);
@@ -206,11 +211,18 @@ public class ImageDownloadService {
     private boolean downloadImageViaCurl(String urlStr, String filename) {
         try {
             new File(filename).getParentFile().mkdirs();
-            Process p = new ProcessBuilder("curl", "-k", "-s", "--max-time", "30", "-o", filename, urlStr)
+            Process p = new ProcessBuilder("curl", "-k", "-s", "-L", "--max-time", "30", "-o", filename, urlStr)
                 .redirectErrorStream(true).start();
             if (p.waitFor() != 0) return false;
             File f = new File(filename);
             if (!f.exists() || f.length() < 10000) { f.delete(); return false; }
+            // valida magic bytes JPEG (FF D8 FF) ou PNG (89 50 4E 47)
+            try (java.io.InputStream is = new java.io.FileInputStream(f)) {
+                int b0 = is.read(), b1 = is.read(), b2 = is.read(), b3 = is.read();
+                boolean isJpeg = (b0 == 0xFF && b1 == 0xD8 && b2 == 0xFF);
+                boolean isPng  = (b0 == 0x89 && b1 == 0x50 && b2 == 0x4E && b3 == 0x47);
+                if (!isJpeg && !isPng) { f.delete(); return false; }
+            }
             return true;
         } catch (Exception e) { log.warn("   ❌ curl exception: " + e.getMessage()); return false; }
     }

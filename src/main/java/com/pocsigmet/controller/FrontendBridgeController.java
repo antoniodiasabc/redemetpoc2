@@ -101,7 +101,7 @@ public class FrontendBridgeController {
 
     @GetMapping("/canal16frames")
     public ResponseEntity<String> canal16frames() {
-        File[] files = new File("data").listFiles((d, n) -> n.startsWith("canal16_202") && n.endsWith(".jpg"));
+        File[] files = DATA_DIR.listFiles((d, n) -> n.startsWith("canal16_202") && n.endsWith(".jpg"));
         if (files == null || files.length == 0) return json("[]");
         Arrays.sort(files, (a, b) -> a.getName().compareTo(b.getName()));
         int start = Math.max(0, files.length - 8);
@@ -115,7 +115,7 @@ public class FrontendBridgeController {
 
     @GetMapping("/frames")
     public ResponseEntity<String> frames() {
-        File[] files = new File("data").listFiles((d, n) -> n.startsWith("canal16_202") && n.endsWith(".jpg"));
+        File[] files = DATA_DIR.listFiles((d, n) -> n.startsWith("canal16_202") && n.endsWith(".jpg"));
         if (files == null) files = new File[0];
         Arrays.sort(files, (a, b) -> a.getName().compareTo(b.getName()));
         StringBuilder sb = new StringBuilder("{\"frames\":[");
@@ -131,7 +131,7 @@ public class FrontendBridgeController {
     @GetMapping("/api/v1/animation/realcada-images")
     public ResponseEntity<String> realcadaImages(@RequestParam(defaultValue = "12") int count) {
         count = Math.min(50, Math.max(1, count));
-        File[] files = new File("data").listFiles((d, n) -> n.startsWith("realcada_") && n.endsWith(".png") && !n.equals("realcada_latest.png"));
+        File[] files = DATA_DIR.listFiles((d, n) -> n.startsWith("realcada_") && n.endsWith(".png") && !n.equals("realcada_latest.png"));
         if (files == null || files.length == 0)
             return json("{\"images\":[],\"count\":0}");
         Arrays.sort(files, (a, b) -> Long.compare(b.lastModified(), a.lastModified()));

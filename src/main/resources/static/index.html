@@ -346,6 +346,7 @@
         <label style="display:flex;align-items:center;gap:6px;margin-bottom:5px;cursor:pointer;"><input type="checkbox" id="chk3d-sigmet"  checked onchange="_toggle3DLayer('sigmet',this.checked)">SIGMETs</label>
         <label style="display:flex;align-items:center;gap:6px;margin-bottom:5px;cursor:pointer;"><input type="checkbox" id="chk3d-vizinho" checked onchange="_toggle3DLayer('vizinho',this.checked)">Vizinhos</label>
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="chk3d-grib2"   checked onchange="if(window._cesiumGrib2Billboards)window._cesiumGrib2Billboards.show=this.checked">GRIB2</label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="chk3d-top200sb" checked onchange="_toggle3DLayer('top200sb',this.checked)">Top 200 SB</label>
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="chk3d-radar" checked onchange="_toggle3DRadar(this.checked)">Radar</label>
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="chk3d-canal16" checked onchange="if(window._cesiumCanal16Layer)window._cesiumCanal16Layer.show=this.checked">Canal 16</label>
     </div>
@@ -1100,6 +1101,10 @@
         function toggleRadar2(sigla) {
             _radarActive[sigla] = !_radarActive[sigla];
             _applyRadarLayer(sigla, _radarActive[sigla]);
+            if (!_radarActive[sigla]) {
+                const lbl = document.getElementById('radar-frame-label-' + sigla);
+                if (lbl) lbl.remove();
+            }
             const btn = document.getElementById('btn-radar-' + sigla);
             if (btn) btn.style.background = _radarActive[sigla] ? '#1565c0' : '#e3f2fd',
                      btn.style.color      = _radarActive[sigla] ? '#fff'    : '';
@@ -1233,13 +1238,37 @@
             Object.keys(_radarActive).filter(s => _radarActive[s]).forEach(s => _applyRadarLayer(s, true));
         }
 
+        const _radarLabelOffsets = {};
+
         function _setRadarFrameLabel(sigla, text) {
             const labelId = 'radar-frame-label-' + sigla;
             let el = document.getElementById(labelId);
             if (!el) {
                 el = document.createElement('div');
                 el.id = labelId;
-                el.style.cssText = 'position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.7);color:#4dd0e1;font-family:monospace;font-size:11px;padding:3px 8px;border-radius:3px;pointer-events:none;white-space:nowrap;z-index:9999;';
+                const r = _radarData[sigla];
+                const coord = ol.proj.fromLonLat([(r.leste + r.oeste) / 2, (r.norte + r.sul) / 2]);
+                const px = map.getPixelFromCoordinate(coord);
+                const initLeft = px ? Math.round(px[0]) : window.innerWidth / 2;
+                const initTop  = px ? Math.round(px[1]) : window.innerHeight / 2;
+                el.style.cssText = `position:fixed;top:${initTop}px;left:${initLeft}px;background:rgba(0,0,0,0.7);color:#4dd0e1;font-family:monospace;font-size:11px;padding:3px 8px;border-radius:3px;white-space:nowrap;z-index:9999;cursor:grab;user-select:none;`;
+                // drag
+                let ox, oy, dragging = false;
+                el.addEventListener('mousedown', e => {
+                    if (el.style.bottom && el.style.bottom !== 'auto') {
+                        el.style.top = el.getBoundingClientRect().top + 'px';
+                        el.style.bottom = 'auto';
+                    }
+                    dragging = true; ox = e.clientX - el.getBoundingClientRect().left; oy = e.clientY - el.getBoundingClientRect().top;
+                    el.style.cursor = 'grabbing'; e.preventDefault();
+                });
+                document.addEventListener('mousemove', e => {
+                    if (!dragging) return;
+                    el.style.left = (e.clientX - ox) + 'px';
+                    el.style.top  = (e.clientY - oy) + 'px';
+                    el.style.bottom = 'auto';
+                });
+                document.addEventListener('mouseup', () => { dragging = false; el.style.cursor = 'grab'; });
                 document.body.appendChild(el);
             }
             el.textContent = '🟡 ' + _radarData[sigla].nome.replace('Radar de ','') + ' · ' + text;
@@ -5053,7 +5082,7 @@ async function toggle3D() {
         ol3d.getCesiumScene().camera.flyTo({
             destination: Cesium.Cartesian3.fromDegrees(-52, -15, 8000000)
         });
-        await plotSigwx3D();
+        await plotSigwx3D().catch(e => console.error('plotSigwx3D erro:', e));
         _sync3DImageLayers();
         btn.textContent = '🗺️ Modo 2D';
         document.getElementById('panel-3d').style.display = 'block';
@@ -5121,18 +5150,21 @@ async function plotSigwx3D() {
         sigmet:       scene.primitives.add(new Cesium.PrimitiveCollection()),
         vizinho:      scene.primitives.add(new Cesium.PrimitiveCollection()),
         sigwx:        scene.primitives.add(new Cesium.PrimitiveCollection()),
+        top200sb:     scene.primitives.add(new Cesium.PointPrimitiveCollection()),
         labels:       scene.primitives.add(new Cesium.LabelCollection()),
         labels_sigmet:  scene.primitives.add(new Cesium.LabelCollection()),
         labels_vizinho: scene.primitives.add(new Cesium.LabelCollection()),
         labels_sigwx:   scene.primitives.add(new Cesium.LabelCollection()),
-        labels_fir:     scene.primitives.add(new Cesium.LabelCollection())
+        labels_fir:     scene.primitives.add(new Cesium.LabelCollection()),
+        labels_top200sb: scene.primitives.add(new Cesium.LabelCollection())
     };
 
-    const [sigwx, sigmets, vizinhos, firsData] = await Promise.all([
+    const [sigwx, sigmets, vizinhos, firsData, top200sb] = await Promise.all([
         fetch('/api/v1/sigwx/current').then(r => r.json()).catch(() => ({features:[]})),
         fetch('/redemet_sigmets_json').then(r => r.json()).catch(() => []),
         fetch('/redemet_sigmets_vizinhos').then(r => r.json()).catch(() => []),
-        fetch('/firs').then(r => r.json()).catch(() => ({features:[]}))
+        fetch('/firs').then(r => r.json()).catch(() => ({features:[]})),
+        fetch('/metar_top200_sb').then(r => r.ok && r.headers.get('content-type')?.includes('json') ? r.json() : []).catch(() => [])
     ]);
 
     const allFeatures = [
@@ -5163,7 +5195,7 @@ async function plotSigwx3D() {
                 : src === 'vizinho' ? Cesium.Color.ORANGE.withAlpha(0.25)
                 : cesiumColorByType(p.type, p.cloudType).withAlpha(0.25);
 
-            const outlineColor = isFir ? Cesium.Color.YELLOW
+            const outlineColor = isFir ? Cesium.Color.fromCssColorString('#003399')
                 : src === 'sigmet'  ? Cesium.Color.RED
                 : src === 'vizinho' ? Cesium.Color.ORANGE
                 : cesiumColorByType(p.type, p.cloudType);
@@ -5183,16 +5215,25 @@ async function plotSigwx3D() {
                 appearance: new Cesium.PerInstanceColorAppearance({ translucent: true })
             }));
 
-            col.add(new Cesium.Primitive({
-                geometryInstances: new Cesium.GeometryInstance({
-                    geometry: new Cesium.PolygonOutlineGeometry({
-                        polygonHierarchy: new Cesium.PolygonHierarchy(positions),
-                        extrudedHeight: topM, height: baseM
+            if (isFir) {
+                const firPolylines = scene.primitives.add(new Cesium.PolylineCollection());
+                firPolylines.add({
+                    positions: [...positions, positions[0]],
+                    width: 3,
+                    material: Cesium.Material.fromType('Color', { color: outlineColor })
+                });
+            } else {
+                col.add(new Cesium.Primitive({
+                    geometryInstances: new Cesium.GeometryInstance({
+                        geometry: new Cesium.PolygonOutlineGeometry({
+                            polygonHierarchy: new Cesium.PolygonHierarchy(positions),
+                            extrudedHeight: topM, height: baseM
+                        }),
+                        attributes: { color: Cesium.ColorGeometryInstanceAttribute.fromColor(outlineColor) }
                     }),
-                    attributes: { color: Cesium.ColorGeometryInstanceAttribute.fromColor(outlineColor) }
-                }),
-                appearance: new Cesium.PerInstanceColorAppearance({ flat: true, translucent: false })
-            }));
+                    appearance: new Cesium.PerInstanceColorAppearance({ flat: true, translucent: false })
+                }));
+            }
 
             const lons = ring.map(c => c[0]), lats = ring.map(c => c[1]);
             const cLon = lons.reduce((a,b)=>a+b,0)/lons.length;
@@ -5223,16 +5264,57 @@ async function plotSigwx3D() {
 
     console.log(`plotSigwx3D: ${count} polígonos plotados`);
 
+    // --- Top 200 SB ---
+    console.log('Top200SB raw:', top200sb, 'isArray:', Array.isArray(top200sb));
+    const ptCol = window._cesium3DLayers.top200sb;
+    const lblCol = window._cesium3DLayers.labels_top200sb;
+    console.log('Top200SB ptCol:', ptCol, 'lblCol:', lblCol);
+    window._cesiumTop200Props = {};
+    (Array.isArray(top200sb) ? top200sb : []).forEach(a => {
+        if (!a.lon || !a.lat) return;
+        const id = 'top200_' + a.icao;
+        const color = Cesium.Color.fromCssColorString(a.color || '#00BFFF');
+        ptCol.add({
+            position: Cesium.Cartesian3.fromDegrees(a.lon, a.lat, 0),
+            color: color,
+            pixelSize: 8,
+            outlineColor: Cesium.Color.BLACK,
+            outlineWidth: 1,
+            id: id
+        });
+        lblCol.add({
+            position: Cesium.Cartesian3.fromDegrees(a.lon, a.lat, 5000),
+            text: a.icao || '',
+            font: 'bold 11px sans-serif',
+            fillColor: Cesium.Color.WHITE,
+            outlineColor: Cesium.Color.BLACK,
+            outlineWidth: 2,
+            style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+            scaleByDistance: new Cesium.NearFarScalar(1e5, 1.2, 5e6, 0.3),
+            id: id
+        });
+        window._cesiumTop200Props[id] = a;
+    });
+    console.log(`plotSigwx3D: ${top200sb.length || 0} aeródromos Top200SB plotados`);
+
     const handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
     handler.setInputAction(click => {
         const picked = scene.pick(click.position);
-        if (picked && picked.id !== undefined && window._cesiumFeatureProps[picked.id]) {
-            const { props: p, topM, src } = window._cesiumFeatureProps[picked.id];
-            const label = src === 'fir' ? `<b>FIR ${p.ident || p.name}</b> ${p.nam || ''}`
-                : src === 'sigmet'  ? `<b>SIGMET ${p.sigmetNumber||''}</b><br>${p.fir||''} — ${p.sigmetType||''}<br>${p.validPeriod||''}`
-                : src === 'vizinho' ? `<b>SIGMET Vizinho</b><br>${p.fir||''} — ${p.sigmetType||''}<br>${p.validPeriod||''}`
-                : `<b>${p.type||''}${p.cloudType==='9'?' (CB)':''}</b><br>FL${p.flLower||'000'} → FL${p.flUpper||'---'}`;
-            show3DTooltip(label, click.position);
+        if (picked && picked.id !== undefined) {
+            const top200 = window._cesiumTop200Props && window._cesiumTop200Props[picked.id];
+            if (top200) {
+                const a = top200;
+                const label = `<b>${a.icao}</b> — ${a.nome || ''}<br><span style="color:${a.color}">${a.condition || ''}</span><br><small>${a.metarText || ''}</small>`;
+                show3DTooltip(label, click.position);
+            } else if (window._cesiumFeatureProps[picked.id]) {
+                const { props: p, topM, src } = window._cesiumFeatureProps[picked.id];
+                const label = src === 'fir' ? `<b>FIR ${p.ident || p.name}</b> ${p.nam || ''}`
+                    : src === 'sigmet'  ? `<b>SIGMET ${p.sigmetNumber||''}</b><br>${p.fir||''} — ${p.sigmetType||''}<br>${p.validPeriod||''}`
+                    : src === 'vizinho' ? `<b>SIGMET Vizinho</b><br>${p.fir||''} — ${p.sigmetType||''}<br>${p.validPeriod||''}`
+                    : `<b>${p.type||''}${p.cloudType==='9'?' (CB)':''}</b><br>FL${p.flLower||'000'} → FL${p.flUpper||'---'}`;
+                show3DTooltip(label, click.position);
+            } else { hide3DTooltip(); }
         } else { hide3DTooltip(); }
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
 }
@@ -5280,6 +5362,7 @@ function cesiumColorByType(type, cloudType) {
             <select id="filtro-op" style="background:#2a2a2a;border:1px solid #ff9800;color:#fff;border-radius:4px;padding:4px;">
                 <option value="or">OR</option>
                 <option value="and">AND</option>
+                <option value="var">VAR</option>
             </select>
             <button onclick="fetchFiltro()" style="
                 background:#ff9800; color:#000; border:none;
@@ -5327,22 +5410,56 @@ function cesiumColorByType(type, cloudType) {
         const btn = document.querySelector('#filtro-panel button');
         btn.textContent = '⏳'; btn.disabled = true;
         try {
-            const tipos = raw.split(',').map(s => s.trim()).filter(Boolean);
-            const params = tipos.map(t => 'tipo=' + encodeURIComponent(t)).join('&');
-            const res = await fetch('/metar/filtro?' + params + '&op=' + op);
-            const d = await res.json();
-            document.getElementById('filtro-count').textContent = d.total ?? 0;
-            const list = document.getElementById('filtro-list');
-            if (!d.aerodromos?.length) { list.innerHTML = '<div style="color:#888;text-align:center;padding:10px;">Nenhum resultado</div>'; return; }
-            list.innerHTML = d.aerodromos.map(a =>
-                `<div style="border-left:3px solid #ff9800;padding:4px 8px;margin-bottom:4px;background:#1a0f00;border-radius:0 4px 4px 0;">
-                    <div style="color:#ff9800;font-weight:bold;">${a.icao} <span style="color:#aaa;font-size:11px;">${a.condicao}</span></div>
-                    <div style="color:#ccc;font-size:10px;word-break:break-all;">${a.metar}</div>
-                </div>`
-            ).join('');
+            if (op === 'var') {
+                const pct = raw || '10';
+                const res = await fetch('/metar/variacao?variacao=' + encodeURIComponent(pct));
+                const d = await res.json();
+                document.getElementById('filtro-count').textContent = d.total ?? 0;
+                const list = document.getElementById('filtro-list');
+                if (!d.aerodromos?.length) { list.innerHTML = '<div style="color:#888;text-align:center;padding:10px;">Nenhum resultado</div>'; return; }
+                list.innerHTML = d.aerodromos.map(a => {
+                    const vars = Object.entries(a.variacoes).map(([k, v]) =>
+                        `<span style="color:#ff9800;">${k}</span> ${v.anterior}→${v.atual} <span style="color:${v.variacao_pct>=50?'#f44':'#8f8'};">(${v.variacao_pct}%)</span>`
+                    ).join(' &nbsp;|&nbsp; ');
+                    const hora = a.timestamp_atual ? new Date(a.timestamp_atual).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit',timeZone:'UTC'}) + 'Z' : '';
+                    return `<div style="border-left:3px solid #ff9800;padding:4px 8px;margin-bottom:4px;background:#1a0f00;border-radius:0 4px 4px 0;">
+                        <div style="color:#ff9800;font-weight:bold;">${a.icao} <span style="color:#4dd0e1;font-size:10px;">${hora}</span></div>
+                        <div style="color:#888;font-size:10px;word-break:break-all;">▲ ${a.msg_atual}</div>
+                        <div style="color:#555;font-size:10px;word-break:break-all;">▼ ${a.msg_anterior}</div>
+                        <div style="font-size:10px;margin-top:2px;">${vars}</div>
+                    </div>`;
+                }).join('');
+            } else {
+                const tipos = raw.split(',').map(s => s.trim()).filter(Boolean);
+                const params = tipos.map(t => 'tipo=' + encodeURIComponent(t)).join('&');
+                const res = await fetch('/metar/filtro?' + params + '&op=' + op);
+                const d = await res.json();
+                document.getElementById('filtro-count').textContent = d.total ?? 0;
+                const list = document.getElementById('filtro-list');
+                if (!d.aerodromos?.length) { list.innerHTML = '<div style="color:#888;text-align:center;padding:10px;">Nenhum resultado</div>'; return; }
+                list.innerHTML = d.aerodromos.map(a =>
+                    `<div style="border-left:3px solid #ff9800;padding:4px 8px;margin-bottom:4px;background:#1a0f00;border-radius:0 4px 4px 0;">
+                        <div style="color:#ff9800;font-weight:bold;">${a.icao} <span style="color:#aaa;font-size:11px;">${a.condicao}</span></div>
+                        <div style="color:#ccc;font-size:10px;word-break:break-all;">${a.metar}</div>
+                    </div>`
+                ).join('');
+            }
         } catch(e) { console.error('Erro filtro:', e); }
         finally { btn.textContent = '▶'; btn.disabled = false; }
     };
+
+    document.getElementById('filtro-op').addEventListener('change', function() {
+        const input = document.getElementById('filtro-input');
+        if (this.value === 'var') {
+            input.placeholder = 'ex: 40, +30, 50-';
+            input.value = '40';
+            input.type = 'text';
+        } else {
+            input.placeholder = 'OVC|BKN';
+            input.value = 'OVC|BKN';
+            input.type = 'text';
+        }
+    });
 
     fetchFiltro();
     setInterval(fetchFiltro, 60000);

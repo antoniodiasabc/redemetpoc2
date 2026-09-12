@@ -8,5 +8,10 @@
     "path": "/metar/nuvens",
     "handlerClass": "/app/data/config/handlers/NuvensContagemHandler.java",
     "method": "handle"
+  },
+  {
+    "path": "/metar/variacao",
+    "handlerClass": "/app/data/config/handlers/MetarVariacaoHandler.java",
+    "method": "handle"
   }
 ]

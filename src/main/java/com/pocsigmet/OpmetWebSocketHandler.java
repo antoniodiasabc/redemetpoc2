@@ -374,8 +374,8 @@ public class OpmetWebSocketHandler {
                         String errorMsg = e.getMessage();
                         log.warn(String.valueOf("❌ Erro SSE: " + errorMsg));
                         
-                        if (errorMsg != null && errorMsg.contains("Connection reset")) {
-                            log.info("🔄 Connection reset - fazendo novo login...");
+                        if (errorMsg != null && (errorMsg.contains("Connection reset") || errorMsg.contains("Read timed out"))) {
+                            log.info("🔄 {} - fazendo novo login...", errorMsg.contains("Read timed out") ? "Read timed out" : "Connection reset");
                             if (login()) {
                                 try { Thread.sleep(2000); } catch (InterruptedException ie) {}
                                 continue;

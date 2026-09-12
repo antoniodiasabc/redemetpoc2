@@ -25,6 +25,10 @@ public class DataCleanupScheduler {
         Instant cutoff3h = Instant.now().minus(3, ChronoUnit.HOURS);
         Instant cutoff6h = Instant.now().minus(6, ChronoUnit.HOURS);
 
+        preserveLatestFrames(Paths.get(dataPath), "canal16_202", 10);
+        preserveLatestFrames(Paths.get(dataPath), "vis_", 8);
+        preserveLatestFrames(Paths.get(dataPath), "realcada_", 8);
+
         // raiz /data — imagens satélite, canal16, etc → 3h
         deleteOlderThan(Paths.get(dataPath), cutoff3h, false);
         // subdir images → 3h
@@ -33,6 +37,19 @@ public class DataCleanupScheduler {
         deleteOlderThan(Paths.get(dataPath, "grib2"), cutoff6h, false);
 
         logger.info("✅ Cleanup concluído");
+    }
+
+    /** Marca os N arquivos mais recentes com prefixo como importantes (toca o lastModified) para não serem deletados */
+    private void preserveLatestFrames(Path dir, String prefix, int keep) {
+        if (!Files.exists(dir)) return;
+        try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir, prefix + "*.{jpg,png}")) {
+            java.util.List<Path> files = new java.util.ArrayList<>();
+            stream.forEach(files::add);
+            files.sort(java.util.Comparator.comparing(Path::getFileName).reversed());
+            files.stream().limit(keep).forEach(f -> f.toFile().setLastModified(System.currentTimeMillis()));
+        } catch (IOException e) {
+            logger.warn("preserveLatestFrames erro {}: {}", dir, e.getMessage());
+        }
     }
 
     /** @param recurse false = só arquivos diretos do diretório, sem descer subpastas */

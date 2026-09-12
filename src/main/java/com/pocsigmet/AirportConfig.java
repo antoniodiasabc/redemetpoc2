@@ -27,7 +27,7 @@ public class AirportConfig {
         // Monitora mudanças no arquivo e recarrega automaticamente
         Thread watcher = new Thread(() -> {
             try {
-                Path dir = java.nio.file.Paths.get("/app/data");
+                Path dir = java.nio.file.Paths.get("/app/data/config");
                 WatchService ws = dir.getFileSystem().newWatchService();
                 dir.register(ws, java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY);
                 while (true) {

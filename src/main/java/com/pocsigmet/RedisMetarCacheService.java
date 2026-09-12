@@ -261,6 +261,11 @@ public class RedisMetarCacheService {
         if (jedisPool != null) {
             try (Jedis jedis = jedisPool.getResource()) {
                 java.util.Map<String, String> all = jedis.hgetAll("metar:all");
+                // se Redis retornou vazio, aguarda 300ms e tenta mais uma vez
+                if (all.isEmpty()) {
+                    try { Thread.sleep(300); } catch (InterruptedException ignored) {}
+                    all = jedis.hgetAll("metar:all");
+                }
                 for (java.util.Map.Entry<String, String> e : all.entrySet()) {
                     try { result.put(e.getKey(), objectMapper.readValue(e.getValue(), CachedMetarData.class)); }
                     catch (Exception ignored) {}
