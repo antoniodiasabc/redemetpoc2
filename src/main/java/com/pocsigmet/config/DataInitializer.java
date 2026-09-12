@@ -14,7 +14,7 @@ public class DataInitializer {
     ApplicationRunner createAdminIfAbsent(UserRepository repo, PasswordEncoder encoder) {
         return args -> {
             try {
-                if (repo.findByUsername("admin").isEmpty()) {
+                if (repo.findFirstByUsername("admin").isEmpty()) {
                     String pwd = System.getenv().getOrDefault("ADMIN_PASSWORD", "changeme");
                     repo.save(new UserDocument("admin", encoder.encode(pwd), "ADMIN"));
                 }

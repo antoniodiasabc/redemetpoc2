@@ -79,7 +79,7 @@ public class AuthController {
     public ResponseEntity<String> register(@RequestParam String username,
                                            @RequestParam String password,
                                            @RequestParam(defaultValue = "USER") String role) {
-        if (userRepository.findByUsername(username).isPresent())
+        if (userRepository.findFirstByUsername(username).isPresent())
             return ResponseEntity.badRequest().body("Usuário já existe");
         userRepository.save(new UserDocument(username, passwordEncoder.encode(password), role));
         return ResponseEntity.ok("Usuário criado");
