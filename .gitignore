@@ -66,5 +66,5 @@ _archived_tests/
 !src/main/resources/**/*.geojson
 *.png
 !src/main/resources/**/*.png
-.env
+#.env
 nginx.conf/certs/
