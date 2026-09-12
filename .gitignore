@@ -6,7 +6,7 @@ target/
 *.war
 
 # === Libs grandes (não versionar binários) ===
-libs/
+
 grib2/
 BOOT-INF/
 META-INF/
