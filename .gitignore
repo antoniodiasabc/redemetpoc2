@@ -7,7 +7,6 @@ target/
 
 # === Libs grandes (não versionar binários) ===
 
-grib2/
 BOOT-INF/
 META-INF/
 org/
